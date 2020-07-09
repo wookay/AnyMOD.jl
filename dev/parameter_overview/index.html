@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Parameter overview · anyMOD.jl</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.png" alt="anyMOD.jl logo"/></a><div class="docs-package-name"><span class="docs-autofit">anyMOD.jl</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><span class="tocitem">Model Elements</span><ul><li><a class="tocitem" href="../sets/">Sets and Mappings</a></li><li><a class="tocitem" href="../parts/">Parts</a></li><li><input class="collapse-toggle" id="menuitem-2-3" type="checkbox" checked/><label class="tocitem" for="menuitem-2-3"><span class="docs-label">Parameter</span><i class="docs-chevron"></i></label><ul class="collapsed"><li class="is-active"><a class="tocitem" href>Parameter overview</a><ul class="internal"><li class="toplevel"><a class="tocitem" href="#Read-in"><span>Read-in</span></a></li><li class="toplevel"><a class="tocitem" href="#Inheritance"><span>Inheritance</span></a></li></ul></li><li><a class="tocitem" href="../parameter_list/">Parameter list</a></li></ul></li><li><a class="tocitem" href="../variables/">Variables</a></li><li><a class="tocitem" href="../constraints/">Constraints</a></li></ul></li><li><span class="tocitem">Tools</span><ul><li><input class="collapse-toggle" id="menuitem-3-1" type="checkbox"/><label class="tocitem" for="menuitem-3-1"><span class="docs-label">Reporting</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../plots/">Plots</a></li><li><a class="tocitem" href="../data/">Data files</a></li></ul></li><li><a class="tocitem" href="../performance/">Performance and stability</a></li></ul></li><li><span class="tocitem">Annex</span><ul><li><a class="tocitem" href="../functions/">Functions and types</a></li><li><a class="tocitem" href="../common_mistakes/">Common mistakes</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Model Elements</a></li><li><a class="is-disabled">Parameter</a></li><li class="is-active"><a href>Parameter overview</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Parameter overview</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/leonardgoeke/anyMOD.jl/blob/master/docs/src/parameter_overview.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><style>
+table.tabelle2 td {
+  padding-left: 7px;
+  padding-right: 7px;
+  border-right: solid 1px;
+  border-color: #dbdbdb;
+  font-size: small;
+  font-weight: normal;
+}
+ol.nest {
+  counter-reset: item;
+  list-style-position: inside;
+}
+li.nest {
+  display: block;
+}
+li.nest li:before {
+  content: "2." counter(item, decimal);
+  counter-increment: item;
+}
+li.nest2 li:before {
+  content: "2." counter(item, decimal);
+  counter-increment: item;
+}
+p.norm {
+font-weight: normal;
+font-size: medium;
+}
+</style><h1 id="Parameter-overview"><a class="docs-heading-anchor" href="#Parameter-overview">Parameter overview</a><a id="Parameter-overview-1"></a><a class="docs-heading-anchor-permalink" href="#Parameter-overview" title="Permalink"></a></h1><p>hier wird auch read-in allgemein behandelt zum teil  </p><h1 id="Read-in"><a class="docs-heading-anchor" href="#Read-in">Read-in</a><a id="Read-in-1"></a><a class="docs-heading-anchor-permalink" href="#Read-in" title="Permalink"></a></h1><p>analgous to sets, example input table: explain what gets ignored (here technology and comments) additonal parameter/value columns possible</p><table class="tabelle2">
+<tbody>
+<tr>
+<td style="border-right:none"><strong>timestep_1</strong></td>
+<td style="border-right:none"><strong>region_1</strong></td>
+<td><strong>region_2</strong></td>
+<td style="border-right:none"><strong>parameter</strong></td>
+<td style="border-right:none"><strong>value</strong></td>
+</tr>
+<tr>
+<td style="border-right:none"></td>
+<td style="border-right:none">West</td>
+<td></td>
+<td style="border-right:none">rateDisc</td>
+<td style="border-right:none;text-align:center">0.0</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td style="border-right:none"></td>
+<td></td>
+<td style="border-right:none">rateDisc</td>
+<td style="border-right:none;text-align:center">0.02</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td style="border-right:none">West</td>
+<td>WestSouth</td>
+<td style="border-right:none">rateDisc</td>
+<td style="border-right:none;text-align:center">0.015</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td style="border-right:none">East</td>
+<td></td>
+<td style="border-right:none">rateDisc</td>
+<td style="border-right:none;text-align:center">0.03</td>
+</tr>
+</tbody>
+</table><h1 id="Inheritance"><a class="docs-heading-anchor" href="#Inheritance">Inheritance</a><a id="Inheritance-1"></a><a class="docs-heading-anchor-permalink" href="#Inheritance" title="Permalink"></a></h1><p>tipp: dont overdo it with the inheritance, will decrease performance</p><p>granularity of parameters acutally required within model show inheritance process step-by-step for example</p><table class="tabelle2">
+<tbody>
+<tr>
+<td style="border-right:none"><strong>timestep_superordinate_dispatch</strong></td>
+<td style="border-right:none"><strong>region_expansion</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td style="border-right:none">West < WestNorth</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td style="border-right:none">West < WestNorth</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td style="border-right:none">West < WestSouth</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td style="border-right:none">West < WestSouth</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td style="border-right:none">East < EastNorth</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td style="border-right:none">East < EastNorth</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td style="border-right:none">East < EastSouth</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td style="border-right:none">East < EastSouth</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td style="border-right:none">East</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td style="border-right:none">East</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td style="border-right:none">West</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td style="border-right:none">West</td>
+</tr>
+</tbody>
+</table><h3 id="Inheritance-procedure"><a class="docs-heading-anchor" href="#Inheritance-procedure">Inheritance procedure</a><a id="Inheritance-procedure-1"></a><a class="docs-heading-anchor-permalink" href="#Inheritance-procedure" title="Permalink"></a></h3><p>how inheritance algorithm populates data</p><ol class="nest">
+<li class="nest2"; style="font-size:large;font-weight:bold">&nbsp;&nbsp;&nbsp;Direct matches</font-size><br>
+<p class="norm"; style = "text-indent:1.85em">
+blablalksdjfkl aslkdjflksdjflk
+<table class="tabelle2">
+<tbody>
+<tr>
+<td style="border-right:none"><strong>timestep_superordinate_dispatch</strong></td>
+<td><strong>region_expansion</strong></td>
+<td style="border-right:none"><strong>value</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West < WestNorth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West < WestNorth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West < WestSouth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West < WestSouth</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.015</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East < EastNorth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East < EastNorth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East < EastSouth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East < EastSouth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.03</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</p>
+</li>
+<li class="nest2"; style="font-size:large;font-weight:bold">&nbsp;&nbsp;&nbsp;Go along inheritance rules<br>
+<p class="norm"; style = "text-indent:1.85em">
+sdfsdfsdf
+<ol class="nest">
+<li class="nest"; style="font-size:medium;font-weight:bold">&nbsp;&nbsp;&nbsp;$Ts_{sup}$	&#8594; upwards<br>
+<p class="norm">
+sdfsdf
+<table class="tabelle2">
+<tbody>
+<tr>
+<td style="border-right:none"><strong>timestep_superordinate_dispatch</strong></td>
+<td><strong>region_expansion</strong></td>
+<td style="border-right:none"><strong>value</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West < WestNorth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West < WestNorth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West < WestSouth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West < WestSouth</td>
+<td style="border-right:none;text-align:center">0.015</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East < EastNorth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East < EastNorth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East < EastSouth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East < EastSouth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East</td>
+<td style="border-right:none;text-align:center">0.03</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.00</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.00</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+</p>
+<li class="nest"; style="font-size:medium;font-weight:bold">&nbsp;&nbsp;&nbsp;$R_{exp}$ &#8594; upwards<br>
+<p class="norm">
+sdf
+<table class="tabelle2">
+<tbody>
+<tr>
+<td style="border-right:none"><strong>timestep_superordinate_dispatch</strong></td>
+<td><strong>region_expansion</strong></td>
+<td style="border-right:none"><strong>value</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West < WestNorth</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.00</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West < WestNorth</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.00</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West < WestSouth</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.00</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West < WestSouth</td>
+<td style="border-right:none;text-align:center">0.015</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East < EastNorth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East < EastNorth</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.03</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East < EastSouth</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East < EastSouth</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.03</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East</td>
+<td style="border-right:none;text-align:center"></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East</td>
+<td style="border-right:none;text-align:center">0.03</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West</td>
+<td style="border-right:none;text-align:center">0.00</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West</td>
+<td style="border-right:none;text-align:center">0.00</td>
+</tr>
+</tbody>
+</table>
+</p>
+</li>
+<li class="nest"; style="font-size:medium;font-weight:bold">&nbsp;&nbsp;&nbsp;$Ts_{sup}$ &#8594; average<br>
+<p class="norm">
+sdf
+</p>
+</li>
+<li class="nest"; style="font-size:medium;font-weight:bold">&nbsp;&nbsp;&nbsp;$R_{exp}$	&#8594; average<br>
+<p class="norm">
+sdf
+</p>
+</li>
+</ol></li>
+<li class="nest2"; style="font-size:large;font-weight:bold">&nbsp;&nbsp;&nbsp;Use default value<br>
+<p class="norm"; style = "text-indent:1.85em">
+sdf
+<table class="tabelle2">
+<tbody>
+<tr>
+<td style="border-right:none"><strong>timestep_superordinate_dispatch</strong></td>
+<td><strong>region_expansion</strong></td>
+<td style="border-right:none"><strong>value</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West < WestNorth</td>
+<td style="border-right:none;text-align:center">0.00</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West < WestNorth</td>
+<td style="border-right:none;text-align:center">0.00</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West < WestSouth</td>
+<td style="border-right:none;text-align:center">0.00</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West < WestSouth</td>
+<td style="border-right:none;text-align:center">0.015</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East < EastNorth</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.02</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East < EastNorth</td>
+<td style="border-right:none;text-align:center">0.03</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East < EastSouth</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.02</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East < EastSouth</td>
+<td style="border-right:none;text-align:center">0.03</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>East</td>
+<td style="border-right:none;text-align:center"><strong style="color:#60ad51">0.02</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>East</td>
+<td style="border-right:none;text-align:center">0.03</td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td>West</td>
+<td style="border-right:none;text-align:center">0.00</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td>West</td>
+<td style="border-right:none;text-align:center">0.00</td>
+</tr>
+</tbody>
+</table>
+</p>
+</li>
+</ol><h3 id="Modes-of-inheritance"><a class="docs-heading-anchor" href="#Modes-of-inheritance">Modes of inheritance</a><a id="Modes-of-inheritance-1"></a><a class="docs-heading-anchor-permalink" href="#Modes-of-inheritance" title="Permalink"></a></h3><p>list other types of inheritance:</p><ul><li>upwards</li><li>average</li><li>sum</li><li>average*</li><li>sum*</li></ul></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parts/">« Parts</a><a class="docs-footer-nextpage" href="../parameter_list/">Parameter list »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Thursday 9 July 2020 16:56">Thursday 9 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
