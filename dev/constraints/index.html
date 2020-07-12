@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Constraints · anyMOD.jl</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.png" alt="anyMOD.jl logo"/></a><div class="docs-package-name"><span class="docs-autofit">anyMOD.jl</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><span class="tocitem">Model Elements</span><ul><li><a class="tocitem" href="../sets/">Sets and Mappings</a></li><li><a class="tocitem" href="../parts/">Parts</a></li><li><input class="collapse-toggle" id="menuitem-2-3" type="checkbox"/><label class="tocitem" for="menuitem-2-3"><span class="docs-label">Parameter</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../parameter_overview/">Parameter overview</a></li><li><a class="tocitem" href="../parameter_list/">Parameter list</a></li></ul></li><li><a class="tocitem" href="../variables/">Variables</a></li><li class="is-active"><a class="tocitem" href>Constraints</a><ul class="internal"><li class="toplevel"><a class="tocitem" href="#Balances"><span>Balances</span></a></li><li class="toplevel"><a class="tocitem" href="#Dispatch-restrictions"><span>Dispatch restrictions</span></a></li><li class="toplevel"><a class="tocitem" href="#Capacity-expansion"><span>Capacity expansion</span></a></li><li class="toplevel"><a class="tocitem" href="#Cost-equations"><span>Cost equations</span></a></li><li class="toplevel"><a class="tocitem" href="#Limiting-constraints"><span>Limiting constraints</span></a></li></ul></li></ul></li><li><span class="tocitem">Tools</span><ul><li><input class="collapse-toggle" id="menuitem-3-1" type="checkbox"/><label class="tocitem" for="menuitem-3-1"><span class="docs-label">Reporting</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../plots/">Plots</a></li><li><a class="tocitem" href="../data/">Data files</a></li></ul></li><li><a class="tocitem" href="../performance/">Performance and stability</a></li></ul></li><li><span class="tocitem">Annex</span><ul><li><a class="tocitem" href="../functions/">Functions and types</a></li><li><a class="tocitem" href="../common_mistakes/">Common mistakes</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Model Elements</a></li><li class="is-active"><a href>Constraints</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Constraints</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/leonardgoeke/anyMOD.jl/blob/master/docs/src/constraints.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><style>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Constraints · anyMOD.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><a href="../"><img class="logo" src="../assets/logo.png" alt="anyMOD.jl logo"/></a><h1>anyMOD.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Introduction</a></li><li><span class="toctext">Model Elements</span><ul><li><a class="toctext" href="../sets/">Sets and Mappings</a></li><li><a class="toctext" href="../parts/">Parts</a></li><li><span class="toctext">Parameter</span><ul><li><a class="toctext" href="../parameter_overview/">Parameter overview</a></li><li><a class="toctext" href="../parameter_list/">Parameter list</a></li></ul></li><li><a class="toctext" href="../variables/">Variables</a></li><li class="current"><a class="toctext" href>Constraints</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Balances-1">Balances</a></li><li class="toplevel"><a class="toctext" href="#Dispatch-restrictions-1">Dispatch restrictions</a></li><li class="toplevel"><a class="toctext" href="#Capacity-expansion-1">Capacity expansion</a></li><li class="toplevel"><a class="toctext" href="#Cost-equations-1">Cost equations</a></li><li class="toplevel"><a class="toctext" href="#Limiting-constraints-1">Limiting constraints</a></li></ul></li></ul></li><li><span class="toctext">Tools</span><ul><li><span class="toctext">Reporting</span><ul><li><a class="toctext" href="../plots/">Plots</a></li><li><a class="toctext" href="../data/">Data files</a></li></ul></li><li><a class="toctext" href="../performance/">Performance and stability</a></li></ul></li><li><span class="toctext">Annex</span><ul><li><a class="toctext" href="../functions/">Functions and types</a></li><li><a class="toctext" href="../common_mistakes/">Common mistakes</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Model Elements</li><li><a href>Constraints</a></li></ul><a class="edit-page" href="https://github.com/leonardgoeke/anyMOD.jl/blob/master/docs/src/constraints.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Constraints</span><a class="fa fa-bars" href="#"></a></div></header><style>
 table.tabelle td {
   border-left: 1px solid;
   border-color: #dbdbdb;
@@ -17,7 +17,7 @@ ul.liste {
   display:inline-block;
   text-align: left;
 }
-</style><h1 id="Constraints"><a class="docs-heading-anchor" href="#Constraints">Constraints</a><a id="Constraints-1"></a><a class="docs-heading-anchor-permalink" href="#Constraints" title="Permalink"></a></h1><p><a href="#Energy-balance">Energy balance</a></p><p>sehen nicht aus wie erwartet, limits hier nicht drin</p><p>analog zu Variables, was format etc. anbetrifft</p><p>note: constraints can look unexpected</p><p>stylized equations see paper for detail</p><h1 id="Balances"><a class="docs-heading-anchor" href="#Balances">Balances</a><a id="Balances-1"></a><a class="docs-heading-anchor-permalink" href="#Balances" title="Permalink"></a></h1><h3 id="Energy-balance"><a class="docs-heading-anchor" href="#Energy-balance">Energy balance</a><a id="Energy-balance-1"></a><a class="docs-heading-anchor-permalink" href="#Energy-balance" title="Permalink"></a></h3><p>explain name</p><table class="tabelle">
+</style><h1><a class="nav-anchor" id="Constraints-1" href="#Constraints-1">Constraints</a></h1><p><a href="#Energy-balance-1">Energy balance</a></p><p>sehen nicht aus wie erwartet, limits hier nicht drin</p><p>analog zu Variables, was format etc. anbetrifft</p><p>note: constraints can look unexpected</p><p>stylized equations see paper for detail</p><h1><a class="nav-anchor" id="Balances-1" href="#Balances-1">Balances</a></h1><h3><a class="nav-anchor" id="Energy-balance-1" href="#Energy-balance-1">Energy balance</a></h3><p>explain name</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -62,7 +62,7 @@ ul.liste {
 <td><a href="../parts/#Balance-1">balance</a></td>
 </tr>
 </tbody>
-</table><h3 id="Conversion-balance"><a class="docs-heading-anchor" href="#Conversion-balance">Conversion balance</a><a id="Conversion-balance-1"></a><a class="docs-heading-anchor-permalink" href="#Conversion-balance" title="Permalink"></a></h3><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Conversion-balance-1" href="#Conversion-balance-1">Conversion balance</a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -102,7 +102,7 @@ ul.liste {
 <td><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Storage-Balance"><a class="docs-heading-anchor" href="#Storage-Balance">Storage Balance</a><a id="Storage-Balance-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-Balance" title="Permalink"></a></h3><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Storage-Balance-1" href="#Storage-Balance-1">Storage Balance</a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -144,7 +144,7 @@ ul.liste {
 <td><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h1 id="Dispatch-restrictions"><a class="docs-heading-anchor" href="#Dispatch-restrictions">Dispatch restrictions</a><a id="Dispatch-restrictions-1"></a><a class="docs-heading-anchor-permalink" href="#Dispatch-restrictions" title="Permalink"></a></h1><h3 id="Conversion-capacity-restriction"><a class="docs-heading-anchor" href="#Conversion-capacity-restriction">Conversion capacity restriction</a><a id="Conversion-capacity-restriction-1"></a><a class="docs-heading-anchor-permalink" href="#Conversion-capacity-restriction" title="Permalink"></a></h3><p>verweis auf: <a href="../sets/#Technologies">Technologies</a> wegen eff und allgemein verweis auf paper wegen feld mit capacity restrictions, da auch noch verweis auf das objekt</p><table class="tabelle">
+</table><h1><a class="nav-anchor" id="Dispatch-restrictions-1" href="#Dispatch-restrictions-1">Dispatch restrictions</a></h1><h3><a class="nav-anchor" id="Conversion-capacity-restriction-1" href="#Conversion-capacity-restriction-1">Conversion capacity restriction</a></h3><p>verweis auf: <a href="../sets/#Technologies-1">Technologies</a> wegen eff und allgemein verweis auf paper wegen feld mit capacity restrictions, da auch noch verweis auf das objekt</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -196,7 +196,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Storage-capacity-restriction"><a class="docs-heading-anchor" href="#Storage-capacity-restriction">Storage capacity restriction</a><a id="Storage-capacity-restriction-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-capacity-restriction" title="Permalink"></a></h3><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Storage-capacity-restriction-1" href="#Storage-capacity-restriction-1">Storage capacity restriction</a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -251,7 +251,7 @@ ul.liste {
 <td colspan="3"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Energy-ratio-restriction"><a class="docs-heading-anchor" href="#Energy-ratio-restriction">Energy ratio restriction</a><a id="Energy-ratio-restriction-1"></a><a class="docs-heading-anchor-permalink" href="#Energy-ratio-restriction" title="Permalink"></a></h3><p>do not include internal storage!</p><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Energy-ratio-restriction-1" href="#Energy-ratio-restriction-1">Energy ratio restriction</a></h3><p>do not include internal storage!</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -292,7 +292,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Exchange-capacity-restriction"><a class="docs-heading-anchor" href="#Exchange-capacity-restriction">Exchange capacity restriction</a><a id="Exchange-capacity-restriction-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-capacity-restriction" title="Permalink"></a></h3><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Exchange-capacity-restriction-1" href="#Exchange-capacity-restriction-1">Exchange capacity restriction</a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -331,7 +331,7 @@ ul.liste {
 <td><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3 id="Trade-capacity-restriction"><a class="docs-heading-anchor" href="#Trade-capacity-restriction">Trade capacity restriction</a><a id="Trade-capacity-restriction-1"></a><a class="docs-heading-anchor-permalink" href="#Trade-capacity-restriction" title="Permalink"></a></h3><p>capacity no variable here</p><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Trade-capacity-restriction-1" href="#Trade-capacity-restriction-1">Trade capacity restriction</a></h3><p>capacity no variable here</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -371,7 +371,7 @@ ul.liste {
 <td colspan="2"><a href="../parts/#Trade-1">trade</a></td>
 </tr>
 </tbody>
-</table><h1 id="Capacity-expansion"><a class="docs-heading-anchor" href="#Capacity-expansion">Capacity expansion</a><a id="Capacity-expansion-1"></a><a class="docs-heading-anchor-permalink" href="#Capacity-expansion" title="Permalink"></a></h1><h3 id="Definition-of-installed-capacity"><a class="docs-heading-anchor" href="#Definition-of-installed-capacity">Definition of installed capacity</a><a id="Definition-of-installed-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Definition-of-installed-capacity" title="Permalink"></a></h3><table class="tabelle">
+</table><h1><a class="nav-anchor" id="Capacity-expansion-1" href="#Capacity-expansion-1">Capacity expansion</a></h1><h3><a class="nav-anchor" id="Definition-of-installed-capacity-1" href="#Definition-of-installed-capacity-1">Definition of installed capacity</a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -443,7 +443,7 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3 id="Decommissioning-of-operated-capacitiy"><a class="docs-heading-anchor" href="#Decommissioning-of-operated-capacitiy">Decommissioning of operated capacitiy</a><a id="Decommissioning-of-operated-capacitiy-1"></a><a class="docs-heading-anchor-permalink" href="#Decommissioning-of-operated-capacitiy" title="Permalink"></a></h3><p>2 gleichungen, wann aktive, decom, recom, verweis of anyModel objekt definition erkläre delta residual</p><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Decommissioning-of-operated-capacitiy-1" href="#Decommissioning-of-operated-capacitiy-1">Decommissioning of operated capacitiy</a></h3><p>2 gleichungen, wann aktive, decom, recom, verweis of anyModel objekt definition erkläre delta residual</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -517,7 +517,7 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h1 id="Cost-equations"><a class="docs-heading-anchor" href="#Cost-equations">Cost equations</a><a id="Cost-equations-1"></a><a class="docs-heading-anchor-permalink" href="#Cost-equations" title="Permalink"></a></h1><p>erkläre discount factor, erkläre das aggregiert wird, auflösung dient nur reporting zwecken, tro</p><p>$ discFac = \frac{1}{(1 \, + \, rateDisc)^a} $</p><h3 id="Expansion-cost-equation"><a class="docs-heading-anchor" href="#Expansion-cost-equation">Expansion cost equation</a><a id="Expansion-cost-equation-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion-cost-equation" title="Permalink"></a></h3><table class="tabelle">
+</table><h1><a class="nav-anchor" id="Cost-equations-1" href="#Cost-equations-1">Cost equations</a></h1><p>erkläre discount factor, erkläre das aggregiert wird, auflösung dient nur reporting zwecken, tro</p><p>$ discFac = \frac{1}{(1 \, + \, rateDisc)^a} $</p><h3><a class="nav-anchor" id="Expansion-cost-equation-1" href="#Expansion-cost-equation-1">Expansion cost equation</a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -565,7 +565,7 @@ $ \scriptstyle ann\{...\} \, = \, costExp\{...\} \, \cdot \, \frac{rateExp\{...\
 <td colspan="3"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Operating-cost-equation"><a class="docs-heading-anchor" href="#Operating-cost-equation">Operating cost equation</a><a id="Operating-cost-equation-1"></a><a class="docs-heading-anchor-permalink" href="#Operating-cost-equation" title="Permalink"></a></h3><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Operating-cost-equation-1" href="#Operating-cost-equation-1">Operating cost equation</a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -606,7 +606,7 @@ $ \scriptstyle \bm{costOpr\{...\}} \, = \, \sum discFac \, \cdot \,  costOpr\{..
 <td colspan="3"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Variable-cost-equation"><a class="docs-heading-anchor" href="#Variable-cost-equation">Variable cost equation</a><a id="Variable-cost-equation-1"></a><a class="docs-heading-anchor-permalink" href="#Variable-cost-equation" title="Permalink"></a></h3><p>erkläre das use hier mit drin</p><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Variable-cost-equation-1" href="#Variable-cost-equation-1">Variable cost equation</a></h3><p>erkläre das use hier mit drin</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -685,7 +685,7 @@ $ \scriptstyle + \, \sum emFac \, \cdot \,  emPrc \, \cdot \, \bm{use} \, \cdot 
 <td colspan="3"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Trade-cost-equation"><a class="docs-heading-anchor" href="#Trade-cost-equation">Trade cost equation</a><a id="Trade-cost-equation-1"></a><a class="docs-heading-anchor-permalink" href="#Trade-cost-equation" title="Permalink"></a></h3><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Trade-cost-equation-1" href="#Trade-cost-equation-1">Trade cost equation</a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -736,7 +736,7 @@ $ \scriptstyle \sum discFac \, \cdot \,  trdSellPrc \, \cdot \,  \bm{trdSell} \,
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Curtailment-and-loss-of-load-cost-equation"><a class="docs-heading-anchor" href="#Curtailment-and-loss-of-load-cost-equation">Curtailment and loss-of-load cost equation</a><a id="Curtailment-and-loss-of-load-cost-equation-1"></a><a class="docs-heading-anchor-permalink" href="#Curtailment-and-loss-of-load-cost-equation" title="Permalink"></a></h3><table class="tabelle">
+</table><h3><a class="nav-anchor" id="Curtailment-and-loss-of-load-cost-equation-1" href="#Curtailment-and-loss-of-load-cost-equation-1">Curtailment and loss-of-load cost equation</a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -787,4 +787,4 @@ $ \scriptstyle \sum discFac \, \cdot \,  costLss \, \cdot \,  \bm{lss} \, \cdot 
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h1 id="Limiting-constraints"><a class="docs-heading-anchor" href="#Limiting-constraints">Limiting constraints</a><a id="Limiting-constraints-1"></a><a class="docs-heading-anchor-permalink" href="#Limiting-constraints" title="Permalink"></a></h1><p>allgemein erklären</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../variables/">« Variables</a><a class="docs-footer-nextpage" href="../plots/">Plots »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Thursday 9 July 2020 18:04">Thursday 9 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</table><h1><a class="nav-anchor" id="Limiting-constraints-1" href="#Limiting-constraints-1">Limiting constraints</a></h1><p>allgemein erklären</p><footer><hr/><a class="previous" href="../variables/"><span class="direction">Previous</span><span class="title">Variables</span></a><a class="next" href="../plots/"><span class="direction">Next</span><span class="title">Plots</span></a></footer></article></body></html>
