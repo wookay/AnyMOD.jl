@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Parameter list · AnyMOD.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><a href="../"><img class="logo" src="../assets/logo.png" alt="AnyMOD.jl logo"/></a><h1>AnyMOD.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Introduction</a></li><li><span class="toctext">Model Elements</span><ul><li><a class="toctext" href="../sets/">Sets and Mappings</a></li><li><a class="toctext" href="../parts/">Parts</a></li><li><span class="toctext">Parameter</span><ul><li><a class="toctext" href="../parameter_overview/">Parameter overview</a></li><li class="current"><a class="toctext" href>Parameter list</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Dispatch-of-technologies-1">Dispatch of technologies</a></li><li class="toplevel"><a class="toctext" href="#Dispatch-of-exchange-and-trade-1">Dispatch of exchange and trade</a></li><li class="toplevel"><a class="toctext" href="#Other-dispatch-1">Other dispatch</a></li><li class="toplevel"><a class="toctext" href="#Capacity-expansion-1">Capacity expansion</a></li><li class="toplevel"><a class="toctext" href="#Limits-on-expansion-and-capacity-1">Limits on expansion and capacity</a></li><li class="toplevel"><a class="toctext" href="#Limits-on-dispatch-quantities-1">Limits on dispatch quantities</a></li><li class="toplevel"><a class="toctext" href="#Emissions-1">Emissions</a></li></ul></li></ul></li><li><a class="toctext" href="../variables/">Variables</a></li><li><a class="toctext" href="../constraints/">Constraints</a></li></ul></li><li><span class="toctext">Tools</span><ul><li><span class="toctext">Reporting</span><ul><li><a class="toctext" href="../plots/">Plots</a></li><li><a class="toctext" href="../data/">Data files</a></li></ul></li><li><a class="toctext" href="../performance/">Performance and stability</a></li></ul></li><li><span class="toctext">Annex</span><ul><li><a class="toctext" href="../functions/">Functions and types</a></li><li><a class="toctext" href="../common_mistakes/">Common mistakes</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Model Elements</li><li>Parameter</li><li><a href>Parameter list</a></li></ul><a class="edit-page" href="https://github.com/leonardgoeke/AnyMOD.jl/blob/master/docs/src/parameter_list.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Parameter list</span><a class="fa fa-bars" href="#"></a></div></header><style>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Parameter list · AnyMOD.jl</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.png" alt="AnyMOD.jl logo"/></a><div class="docs-package-name"><span class="docs-autofit">AnyMOD.jl</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><span class="tocitem">Model Elements</span><ul><li><a class="tocitem" href="../sets/">Sets and Mappings</a></li><li><a class="tocitem" href="../parts/">Parts</a></li><li><input class="collapse-toggle" id="menuitem-2-3" type="checkbox" checked/><label class="tocitem" for="menuitem-2-3"><span class="docs-label">Parameter</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../parameter_overview/">Parameter overview</a></li><li class="is-active"><a class="tocitem" href>Parameter list</a><ul class="internal"><li class="toplevel"><a class="tocitem" href="#Dispatch-of-technologies"><span>Dispatch of technologies</span></a></li><li class="toplevel"><a class="tocitem" href="#Dispatch-of-exchange-and-trade"><span>Dispatch of exchange and trade</span></a></li><li class="toplevel"><a class="tocitem" href="#Other-dispatch"><span>Other dispatch</span></a></li><li class="toplevel"><a class="tocitem" href="#Capacity-expansion"><span>Capacity expansion</span></a></li><li class="toplevel"><a class="tocitem" href="#Limits-on-expansion-and-capacity"><span>Limits on expansion and capacity</span></a></li><li class="toplevel"><a class="tocitem" href="#Limits-on-dispatch-quantities"><span>Limits on dispatch quantities</span></a></li><li class="toplevel"><a class="tocitem" href="#Emissions"><span>Emissions</span></a></li></ul></li></ul></li><li><a class="tocitem" href="../variables/">Variables</a></li><li><a class="tocitem" href="../constraints/">Constraints</a></li></ul></li><li><span class="tocitem">Tools</span><ul><li><input class="collapse-toggle" id="menuitem-3-1" type="checkbox"/><label class="tocitem" for="menuitem-3-1"><span class="docs-label">Reporting</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../plots/">Plots</a></li><li><a class="tocitem" href="../data/">Data files</a></li></ul></li><li><a class="tocitem" href="../performance/">Performance and stability</a></li></ul></li><li><span class="tocitem">Annex</span><ul><li><a class="tocitem" href="../functions/">Functions and types</a></li><li><a class="tocitem" href="../common_mistakes/">Common mistakes</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Model Elements</a></li><li><a class="is-disabled">Parameter</a></li><li class="is-active"><a href>Parameter list</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Parameter list</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/leonardgoeke/AnyMOD.jl/blob/master/docs/src/parameter_list.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><style>
 table.tabelle td {
   border-left: 1px solid !important;
   border-color: #dbdbdb !important;
@@ -25,7 +25,7 @@ ul.liste {
   display:inline-block !important;
   text-align: left !important;
 }
-</style><h1><a class="nav-anchor" id="Parameter-list-1" href="#Parameter-list-1">Parameter list</a></h1><p>einleitung</p><p>capacities are gross/brutto/input capacities, auch für storage erklären, am besten mit zeichnung</p><h1><a class="nav-anchor" id="Dispatch-of-technologies-1" href="#Dispatch-of-technologies-1">Dispatch of technologies</a></h1><p>alles hier kann vom modus abhängen</p><h3><a class="nav-anchor" id="Availability-1" href="#Availability-1">Availability</a></h3><p>bla</p><table class="tabelle">
+</style><h1 id="Parameter-list"><a class="docs-heading-anchor" href="#Parameter-list">Parameter list</a><a id="Parameter-list-1"></a><a class="docs-heading-anchor-permalink" href="#Parameter-list" title="Permalink"></a></h1><p>einleitung</p><p>capacities are gross/brutto/input capacities, auch für storage erklären, am besten mit zeichnung</p><h1 id="Dispatch-of-technologies"><a class="docs-heading-anchor" href="#Dispatch-of-technologies">Dispatch of technologies</a><a id="Dispatch-of-technologies-1"></a><a class="docs-heading-anchor-permalink" href="#Dispatch-of-technologies" title="Permalink"></a></h1><p>alles hier kann vom modus abhängen</p><h3 id="Availability"><a class="docs-heading-anchor" href="#Availability">Availability</a><a id="Availability-1"></a><a class="docs-heading-anchor-permalink" href="#Availability" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -92,7 +92,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Efficiency-1" href="#Efficiency-1">Efficiency</a></h3><p>erwähne emissions</p><table class="tabelle">
+</table><h3 id="Efficiency"><a class="docs-heading-anchor" href="#Efficiency">Efficiency</a><a id="Efficiency-1"></a><a class="docs-heading-anchor-permalink" href="#Efficiency" title="Permalink"></a></h3><p>erwähne emissions</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -158,7 +158,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Variable-cost-1" href="#Variable-cost-1">Variable cost</a></h3><table class="tabelle">
+</table><h3 id="Variable-cost"><a class="docs-heading-anchor" href="#Variable-cost">Variable cost</a><a id="Variable-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Variable-cost" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -203,7 +203,7 @@ ul.liste {
 <td><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Ratios-of-carrier-use-and-generation-1" href="#Ratios-of-carrier-use-and-generation-1">Ratios of carrier use and generation</a></h3><table class="tabelle">
+</table><h3 id="Ratios-of-carrier-use-and-generation"><a class="docs-heading-anchor" href="#Ratios-of-carrier-use-and-generation">Ratios of carrier use and generation</a><a id="Ratios-of-carrier-use-and-generation-1"></a><a class="docs-heading-anchor-permalink" href="#Ratios-of-carrier-use-and-generation" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -246,7 +246,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Storage-self-discharge-1" href="#Storage-self-discharge-1">Storage self-discharge</a></h3><p>erwähne emissions</p><table class="tabelle">
+</table><h3 id="Storage-self-discharge"><a class="docs-heading-anchor" href="#Storage-self-discharge">Storage self-discharge</a><a id="Storage-self-discharge-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-self-discharge" title="Permalink"></a></h3><p>erwähne emissions</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -290,7 +290,7 @@ ul.liste {
 <td><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Storage-inflow-1" href="#Storage-inflow-1">Storage inflow</a></h3><table class="tabelle">
+</table><h3 id="Storage-inflow"><a class="docs-heading-anchor" href="#Storage-inflow">Storage inflow</a><a id="Storage-inflow-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-inflow" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -332,7 +332,7 @@ ul.liste {
 <td><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h1><a class="nav-anchor" id="Dispatch-of-exchange-and-trade-1" href="#Dispatch-of-exchange-and-trade-1">Dispatch of exchange and trade</a></h1><h3><a class="nav-anchor" id="Exchange-availability-1" href="#Exchange-availability-1">Exchange availability</a></h3><p>directed overwrites undirected</p><table class="tabelle">
+</table><h1 id="Dispatch-of-exchange-and-trade"><a class="docs-heading-anchor" href="#Dispatch-of-exchange-and-trade">Dispatch of exchange and trade</a><a id="Dispatch-of-exchange-and-trade-1"></a><a class="docs-heading-anchor-permalink" href="#Dispatch-of-exchange-and-trade" title="Permalink"></a></h1><h3 id="Exchange-availability"><a class="docs-heading-anchor" href="#Exchange-availability">Exchange availability</a><a id="Exchange-availability-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-availability" title="Permalink"></a></h3><p>directed overwrites undirected</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -398,7 +398,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Exchange-losses-1" href="#Exchange-losses-1">Exchange losses</a></h3><p>directed overwrites undirected</p><table class="tabelle">
+</table><h3 id="Exchange-losses"><a class="docs-heading-anchor" href="#Exchange-losses">Exchange losses</a><a id="Exchange-losses-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-losses" title="Permalink"></a></h3><p>directed overwrites undirected</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -464,7 +464,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Exchange-cost-1" href="#Exchange-cost-1">Exchange cost</a></h3><p>directed overwrites undirected</p><table class="tabelle">
+</table><h3 id="Exchange-cost"><a class="docs-heading-anchor" href="#Exchange-cost">Exchange cost</a><a id="Exchange-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-cost" title="Permalink"></a></h3><p>directed overwrites undirected</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -530,7 +530,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Trade-price-1" href="#Trade-price-1">Trade price</a></h3><table class="tabelle">
+</table><h3 id="Trade-price"><a class="docs-heading-anchor" href="#Trade-price">Trade price</a><a id="Trade-price-1"></a><a class="docs-heading-anchor-permalink" href="#Trade-price" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -573,7 +573,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Trade-1">trade</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Trade-capacity-1" href="#Trade-capacity-1">Trade capacity</a></h3><table class="tabelle">
+</table><h3 id="Trade-capacity"><a class="docs-heading-anchor" href="#Trade-capacity">Trade capacity</a><a id="Trade-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Trade-capacity" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -615,7 +615,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Trade-1">trade</a></td>
 </tr>
 </tbody>
-</table><h1><a class="nav-anchor" id="Other-dispatch-1" href="#Other-dispatch-1">Other dispatch</a></h1><h3><a class="nav-anchor" id="Demand-1" href="#Demand-1">Demand</a></h3><p>bla</p><table class="tabelle">
+</table><h1 id="Other-dispatch"><a class="docs-heading-anchor" href="#Other-dispatch">Other dispatch</a><a id="Other-dispatch-1"></a><a class="docs-heading-anchor-permalink" href="#Other-dispatch" title="Permalink"></a></h1><h3 id="Demand"><a class="docs-heading-anchor" href="#Demand">Demand</a><a id="Demand-1"></a><a class="docs-heading-anchor-permalink" href="#Demand" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -654,7 +654,7 @@ ul.liste {
 <td><a href="../parts/#Balance-1">balance</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Cost-of-curtailment-and-loss-of-load-1" href="#Cost-of-curtailment-and-loss-of-load-1">Cost of curtailment and loss of load</a></h3><table class="tabelle">
+</table><h3 id="Cost-of-curtailment-and-loss-of-load"><a class="docs-heading-anchor" href="#Cost-of-curtailment-and-loss-of-load">Cost of curtailment and loss of load</a><a id="Cost-of-curtailment-and-loss-of-load-1"></a><a class="docs-heading-anchor-permalink" href="#Cost-of-curtailment-and-loss-of-load" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -697,7 +697,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Balance-1">balance</a></td>
 </tr>
 </tbody>
-</table><h1><a class="nav-anchor" id="Capacity-expansion-1" href="#Capacity-expansion-1">Capacity expansion</a></h1><h3><a class="nav-anchor" id="Discount-rate-1" href="#Discount-rate-1">Discount rate</a></h3><p>bla</p><table class="tabelle">
+</table><h1 id="Capacity-expansion"><a class="docs-heading-anchor" href="#Capacity-expansion">Capacity expansion</a><a id="Capacity-expansion-1"></a><a class="docs-heading-anchor-permalink" href="#Capacity-expansion" title="Permalink"></a></h1><h3 id="Discount-rate"><a class="docs-heading-anchor" href="#Discount-rate">Discount rate</a><a id="Discount-rate-1"></a><a class="docs-heading-anchor-permalink" href="#Discount-rate" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -738,7 +738,7 @@ ul.liste {
 <td><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Interest-rate-1" href="#Interest-rate-1">Interest rate</a></h3><p>bla</p><table class="tabelle">
+</table><h3 id="Interest-rate"><a class="docs-heading-anchor" href="#Interest-rate">Interest rate</a><a id="Interest-rate-1"></a><a class="docs-heading-anchor-permalink" href="#Interest-rate" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -792,7 +792,7 @@ ul.liste {
 <td colspan="3"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Expansion-cost-1" href="#Expansion-cost-1">Expansion cost</a></h3><p>bla</p><table class="tabelle">
+</table><h3 id="Expansion-cost"><a class="docs-heading-anchor" href="#Expansion-cost">Expansion cost</a><a id="Expansion-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion-cost" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -848,7 +848,7 @@ ul.liste {
 <td colspan="3"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Operating-cost-1" href="#Operating-cost-1">Operating cost</a></h3><p>maintainence costs  </p><table class="tabelle">
+</table><h3 id="Operating-cost"><a class="docs-heading-anchor" href="#Operating-cost">Operating cost</a><a id="Operating-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Operating-cost" title="Permalink"></a></h3><p>maintainence costs  </p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -907,7 +907,7 @@ ul.liste {
 <td colspan="3"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Technical-lifetime-1" href="#Technical-lifetime-1">Technical lifetime</a></h3><p>bla</p><table class="tabelle">
+</table><h3 id="Technical-lifetime"><a class="docs-heading-anchor" href="#Technical-lifetime">Technical lifetime</a><a id="Technical-lifetime-1"></a><a class="docs-heading-anchor-permalink" href="#Technical-lifetime" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -963,7 +963,7 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Economic-lifetime-1" href="#Economic-lifetime-1">Economic lifetime</a></h3><p>bla</p><table class="tabelle">
+</table><h3 id="Economic-lifetime"><a class="docs-heading-anchor" href="#Economic-lifetime">Economic lifetime</a><a id="Economic-lifetime-1"></a><a class="docs-heading-anchor-permalink" href="#Economic-lifetime" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1018,7 +1018,7 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Construction-time-1" href="#Construction-time-1">Construction time</a></h3><p>delay expansion, useful for nuclear, costs are disocunted toward timeperiod for investment</p><table class="tabelle">
+</table><h3 id="Construction-time"><a class="docs-heading-anchor" href="#Construction-time">Construction time</a><a id="Construction-time-1"></a><a class="docs-heading-anchor-permalink" href="#Construction-time" title="Permalink"></a></h3><p>delay expansion, useful for nuclear, costs are disocunted toward timeperiod for investment</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1073,7 +1073,7 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h1><a class="nav-anchor" id="Limits-on-expansion-and-capacity-1" href="#Limits-on-expansion-and-capacity-1">Limits on expansion and capacity</a></h1><h3><a class="nav-anchor" id="Storage-ratios-1" href="#Storage-ratios-1">Storage ratios</a></h3><p>blabla</p><ul><li><code>stInToConv</code>: ratio between conversion and storage input capacity</li><li><code>stOutToStIn</code>: ratio between storage out- and input capacity</li><li><code>sizeToStIn</code>: ratio between storage size and storage input capacity, also known as energy-to-power ratio</li></ul><table class="tabelle">
+</table><h1 id="Limits-on-expansion-and-capacity"><a class="docs-heading-anchor" href="#Limits-on-expansion-and-capacity">Limits on expansion and capacity</a><a id="Limits-on-expansion-and-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-expansion-and-capacity" title="Permalink"></a></h1><h3 id="Storage-ratios"><a class="docs-heading-anchor" href="#Storage-ratios">Storage ratios</a><a id="Storage-ratios-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-ratios" title="Permalink"></a></h3><p>blabla</p><ul><li><code>stInToConv</code>: ratio between conversion and storage input capacity</li><li><code>stOutToStIn</code>: ratio between storage out- and input capacity</li><li><code>sizeToStIn</code>: ratio between storage size and storage input capacity, also known as energy-to-power ratio</li></ul><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1115,7 +1115,7 @@ ul.liste {
 <td colspan="3"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Residual-capacities-1" href="#Residual-capacities-1">Residual capacities</a></h3><table class="tabelle">
+</table><h3 id="Residual-capacities"><a class="docs-heading-anchor" href="#Residual-capacities">Residual capacities</a><a id="Residual-capacities-1"></a><a class="docs-heading-anchor-permalink" href="#Residual-capacities" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1237,7 +1237,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Limits-on-expansion-1" href="#Limits-on-expansion-1">Limits on expansion</a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
+</table><h3 id="Limits-on-expansion"><a class="docs-heading-anchor" href="#Limits-on-expansion">Limits on expansion</a><a id="Limits-on-expansion-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-expansion" title="Permalink"></a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1299,7 +1299,7 @@ ul.liste {
 <td colspan="3"; style="text-align:center"><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Limits-on-capacity-1" href="#Limits-on-capacity-1">Limits on capacity</a></h3><p>for upper limits sum only if inheritance of all descendants are defined warning: problem capalimits und jahre  </p><table class="tabelle">
+</table><h3 id="Limits-on-capacity"><a class="docs-heading-anchor" href="#Limits-on-capacity">Limits on capacity</a><a id="Limits-on-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-capacity" title="Permalink"></a></h3><p>for upper limits sum only if inheritance of all descendants are defined warning: problem capalimits und jahre  </p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1365,7 +1365,7 @@ ul.liste {
 <td colspan="3"; style="text-align:center"><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Limits-on-operated-capacity-1" href="#Limits-on-operated-capacity-1">Limits on operated capacity</a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
+</table><h3 id="Limits-on-operated-capacity"><a class="docs-heading-anchor" href="#Limits-on-operated-capacity">Limits on operated capacity</a><a id="Limits-on-operated-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-operated-capacity" title="Permalink"></a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1431,7 +1431,7 @@ ul.liste {
 <td colspan="3"; style="text-align:center"><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h1><a class="nav-anchor" id="Limits-on-dispatch-quantities-1" href="#Limits-on-dispatch-quantities-1">Limits on dispatch quantities</a></h1><h3><a class="nav-anchor" id="Limits-on-technology-dispatch-1" href="#Limits-on-technology-dispatch-1">Limits on technology dispatch</a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
+</table><h1 id="Limits-on-dispatch-quantities"><a class="docs-heading-anchor" href="#Limits-on-dispatch-quantities">Limits on dispatch quantities</a><a id="Limits-on-dispatch-quantities-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-dispatch-quantities" title="Permalink"></a></h1><h3 id="Limits-on-technology-dispatch"><a class="docs-heading-anchor" href="#Limits-on-technology-dispatch">Limits on technology dispatch</a><a id="Limits-on-technology-dispatch-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-technology-dispatch" title="Permalink"></a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1477,7 +1477,7 @@ ul.liste {
 <td colspan="4"; style="text-align:center"><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Limits-on-exchange-1" href="#Limits-on-exchange-1">Limits on exchange</a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
+</table><h3 id="Limits-on-exchange"><a class="docs-heading-anchor" href="#Limits-on-exchange">Limits on exchange</a><a id="Limits-on-exchange-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-exchange" title="Permalink"></a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1519,7 +1519,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Limits-on-trade,-curtailment-and-loss-of-load-1" href="#Limits-on-trade,-curtailment-and-loss-of-load-1">Limits on trade, curtailment and loss of load</a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
+</table><h3 id="Limits-on-trade,-curtailment-and-loss-of-load"><a class="docs-heading-anchor" href="#Limits-on-trade,-curtailment-and-loss-of-load">Limits on trade, curtailment and loss of load</a><a id="Limits-on-trade,-curtailment-and-loss-of-load-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-trade,-curtailment-and-loss-of-load" title="Permalink"></a></h3><p>for upper limits sum only if inheritance of all descendants are defined</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1562,7 +1562,7 @@ ul.liste {
 <td colspan="4"; style="text-align:center"><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h1><a class="nav-anchor" id="Emissions-1" href="#Emissions-1">Emissions</a></h1><h3><a class="nav-anchor" id="Emission-limit-1" href="#Emission-limit-1">Emission limit</a></h3><p>bla</p><table class="tabelle">
+</table><h1 id="Emissions"><a class="docs-heading-anchor" href="#Emissions">Emissions</a><a id="Emissions-1"></a><a class="docs-heading-anchor-permalink" href="#Emissions" title="Permalink"></a></h1><h3 id="Emission-limit"><a class="docs-heading-anchor" href="#Emission-limit">Emission limit</a><a id="Emission-limit-1"></a><a class="docs-heading-anchor-permalink" href="#Emission-limit" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1605,7 +1605,7 @@ ul.liste {
 <td><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Emission-factor-1" href="#Emission-factor-1">Emission factor</a></h3><p>bla</p><table class="tabelle">
+</table><h3 id="Emission-factor"><a class="docs-heading-anchor" href="#Emission-factor">Emission factor</a><a id="Emission-factor-1"></a><a class="docs-heading-anchor-permalink" href="#Emission-factor" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1649,7 +1649,7 @@ ul.liste {
 <td><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Emission-price-1" href="#Emission-price-1">Emission price</a></h3><p>bla</p><table class="tabelle">
+</table><h3 id="Emission-price"><a class="docs-heading-anchor" href="#Emission-price">Emission price</a><a id="Emission-price-1"></a><a class="docs-heading-anchor-permalink" href="#Emission-price" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1694,4 +1694,4 @@ ul.liste {
 <td><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><footer><hr/><a class="previous" href="../parameter_overview/"><span class="direction">Previous</span><span class="title">Parameter overview</span></a><a class="next" href="../variables/"><span class="direction">Next</span><span class="title">Variables</span></a></footer></article></body></html>
+</table></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parameter_overview/">« Parameter overview</a><a class="docs-footer-nextpage" href="../variables/">Variables »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Sunday 12 July 2020 14:18">Sunday 12 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

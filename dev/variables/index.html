@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Variables · AnyMOD.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><a href="../"><img class="logo" src="../assets/logo.png" alt="AnyMOD.jl logo"/></a><h1>AnyMOD.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Introduction</a></li><li><span class="toctext">Model Elements</span><ul><li><a class="toctext" href="../sets/">Sets and Mappings</a></li><li><a class="toctext" href="../parts/">Parts</a></li><li><span class="toctext">Parameter</span><ul><li><a class="toctext" href="../parameter_overview/">Parameter overview</a></li><li><a class="toctext" href="../parameter_list/">Parameter list</a></li></ul></li><li class="current"><a class="toctext" href>Variables</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Dispatch-of-technologies-1">Dispatch of technologies</a></li><li class="toplevel"><a class="toctext" href="#Non-technology-dispatch-1">Non-technology dispatch</a></li><li class="toplevel"><a class="toctext" href="#Capacity-expansion-1">Capacity expansion</a></li><li class="toplevel"><a class="toctext" href="#Costs-1">Costs</a></li></ul></li><li><a class="toctext" href="../constraints/">Constraints</a></li></ul></li><li><span class="toctext">Tools</span><ul><li><span class="toctext">Reporting</span><ul><li><a class="toctext" href="../plots/">Plots</a></li><li><a class="toctext" href="../data/">Data files</a></li></ul></li><li><a class="toctext" href="../performance/">Performance and stability</a></li></ul></li><li><span class="toctext">Annex</span><ul><li><a class="toctext" href="../functions/">Functions and types</a></li><li><a class="toctext" href="../common_mistakes/">Common mistakes</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Model Elements</li><li><a href>Variables</a></li></ul><a class="edit-page" href="https://github.com/leonardgoeke/AnyMOD.jl/blob/master/docs/src/variables.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Variables</span><a class="fa fa-bars" href="#"></a></div></header><style>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Variables · AnyMOD.jl</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.png" alt="AnyMOD.jl logo"/></a><div class="docs-package-name"><span class="docs-autofit">AnyMOD.jl</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><span class="tocitem">Model Elements</span><ul><li><a class="tocitem" href="../sets/">Sets and Mappings</a></li><li><a class="tocitem" href="../parts/">Parts</a></li><li><input class="collapse-toggle" id="menuitem-2-3" type="checkbox"/><label class="tocitem" for="menuitem-2-3"><span class="docs-label">Parameter</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../parameter_overview/">Parameter overview</a></li><li><a class="tocitem" href="../parameter_list/">Parameter list</a></li></ul></li><li class="is-active"><a class="tocitem" href>Variables</a><ul class="internal"><li class="toplevel"><a class="tocitem" href="#Dispatch-of-technologies"><span>Dispatch of technologies</span></a></li><li class="toplevel"><a class="tocitem" href="#Non-technology-dispatch"><span>Non-technology dispatch</span></a></li><li class="toplevel"><a class="tocitem" href="#Capacity-expansion"><span>Capacity expansion</span></a></li><li class="toplevel"><a class="tocitem" href="#Costs"><span>Costs</span></a></li></ul></li><li><a class="tocitem" href="../constraints/">Constraints</a></li></ul></li><li><span class="tocitem">Tools</span><ul><li><input class="collapse-toggle" id="menuitem-3-1" type="checkbox"/><label class="tocitem" for="menuitem-3-1"><span class="docs-label">Reporting</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../plots/">Plots</a></li><li><a class="tocitem" href="../data/">Data files</a></li></ul></li><li><a class="tocitem" href="../performance/">Performance and stability</a></li></ul></li><li><span class="tocitem">Annex</span><ul><li><a class="tocitem" href="../functions/">Functions and types</a></li><li><a class="tocitem" href="../common_mistakes/">Common mistakes</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Model Elements</a></li><li class="is-active"><a href>Variables</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Variables</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/leonardgoeke/AnyMOD.jl/blob/master/docs/src/variables.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><style>
 table.tabelle td {
   border-left: 1px solid;
   border-color: #dbdbdb;
@@ -17,7 +17,7 @@ ul.liste {
   display:inline-block;
   text-align: left;
 }
-</style><h1><a class="nav-anchor" id="Variables-1" href="#Variables-1">Variables</a></h1><p>erklärung grundsätzliches format, dataframe mit werten und ids, erklären wie das ganze ausgegeben werden kann, hinweis, dass zelle nicht einfach eine JuMP variable sondern eine expression enthält</p><p>all positive defined as positive</p><p>note: anyMOD benutzt nicht die jump container, da variablen extrem sparse highly inefficient</p><h1><a class="nav-anchor" id="Dispatch-of-technologies-1" href="#Dispatch-of-technologies-1">Dispatch of technologies</a></h1><p><a href="../sets/#Technologies-1">Technologies</a></p><h3><a class="nav-anchor" id="Generation-and-use-1" href="#Generation-and-use-1">Generation and use</a></h3><p>sdf, not all modes relevant for each technology, no variables für ava gleich 0</p><table class="tabelle">
+</style><h1 id="Variables"><a class="docs-heading-anchor" href="#Variables">Variables</a><a id="Variables-1"></a><a class="docs-heading-anchor-permalink" href="#Variables" title="Permalink"></a></h1><p>erklärung grundsätzliches format, dataframe mit werten und ids, erklären wie das ganze ausgegeben werden kann, hinweis, dass zelle nicht einfach eine JuMP variable sondern eine expression enthält</p><p>all positive defined as positive</p><p>note: anyMOD benutzt nicht die jump container, da variablen extrem sparse highly inefficient</p><h1 id="Dispatch-of-technologies"><a class="docs-heading-anchor" href="#Dispatch-of-technologies">Dispatch of technologies</a><a id="Dispatch-of-technologies-1"></a><a class="docs-heading-anchor-permalink" href="#Dispatch-of-technologies" title="Permalink"></a></h1><p><a href="../sets/#Technologies">Technologies</a></p><h3 id="Generation-and-use"><a class="docs-heading-anchor" href="#Generation-and-use">Generation and use</a><a id="Generation-and-use-1"></a><a class="docs-heading-anchor-permalink" href="#Generation-and-use" title="Permalink"></a></h3><p>sdf, not all modes relevant for each technology, no variables für ava gleich 0</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -58,7 +58,7 @@ ul.liste {
 <td  colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Charging-and-discharging-1" href="#Charging-and-discharging-1">Charging and discharging</a></h3><table class="tabelle">
+</table><h3 id="Charging-and-discharging"><a class="docs-heading-anchor" href="#Charging-and-discharging">Charging and discharging</a><a id="Charging-and-discharging-1"></a><a class="docs-heading-anchor-permalink" href="#Charging-and-discharging" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -109,7 +109,7 @@ ul.liste {
 <td  colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Storage-level-1" href="#Storage-level-1">Storage level</a></h3><table class="tabelle">
+</table><h3 id="Storage-level"><a class="docs-heading-anchor" href="#Storage-level">Storage level</a><a id="Storage-level-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-level" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -146,7 +146,7 @@ ul.liste {
 <td><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h1><a class="nav-anchor" id="Non-technology-dispatch-1" href="#Non-technology-dispatch-1">Non-technology dispatch</a></h1><h3><a class="nav-anchor" id="Exchange-quantities-1" href="#Exchange-quantities-1">Exchange quantities</a></h3><p>directed! explain what determines potential interconnection</p><table class="tabelle">
+</table><h1 id="Non-technology-dispatch"><a class="docs-heading-anchor" href="#Non-technology-dispatch">Non-technology dispatch</a><a id="Non-technology-dispatch-1"></a><a class="docs-heading-anchor-permalink" href="#Non-technology-dispatch" title="Permalink"></a></h1><h3 id="Exchange-quantities"><a class="docs-heading-anchor" href="#Exchange-quantities">Exchange quantities</a><a id="Exchange-quantities-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-quantities" title="Permalink"></a></h3><p>directed! explain what determines potential interconnection</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -182,7 +182,7 @@ ul.liste {
 <td><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Buy-and-sell-1" href="#Buy-and-sell-1">Buy and sell</a></h3><table class="tabelle">
+</table><h3 id="Buy-and-sell"><a class="docs-heading-anchor" href="#Buy-and-sell">Buy and sell</a><a id="Buy-and-sell-1"></a><a class="docs-heading-anchor-permalink" href="#Buy-and-sell" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -219,7 +219,7 @@ ul.liste {
 <td colspan="2"><a href="../parts/#Trade-1">trade</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Curtailment-and-loss-of-load-1" href="#Curtailment-and-loss-of-load-1">Curtailment and loss-of-load</a></h3><p>fully analogous to trade buy and sell, just created to faciliate reporting since aims to represent other aspects</p><table class="tabelle">
+</table><h3 id="Curtailment-and-loss-of-load"><a class="docs-heading-anchor" href="#Curtailment-and-loss-of-load">Curtailment and loss-of-load</a><a id="Curtailment-and-loss-of-load-1"></a><a class="docs-heading-anchor-permalink" href="#Curtailment-and-loss-of-load" title="Permalink"></a></h3><p>fully analogous to trade buy and sell, just created to faciliate reporting since aims to represent other aspects</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -255,7 +255,7 @@ ul.liste {
 <td  colspan="2"><a href="../parts/#Balance-1">balance</a></td>
 </tr>
 </tbody>
-</table><h1><a class="nav-anchor" id="Capacity-expansion-1" href="#Capacity-expansion-1">Capacity expansion</a></h1><h3><a class="nav-anchor" id="Expansion-1" href="#Expansion-1">Expansion</a></h3><table class="tabelle">
+</table><h1 id="Capacity-expansion"><a class="docs-heading-anchor" href="#Capacity-expansion">Capacity expansion</a><a id="Capacity-expansion-1"></a><a class="docs-heading-anchor-permalink" href="#Capacity-expansion" title="Permalink"></a></h1><h3 id="Expansion"><a class="docs-heading-anchor" href="#Expansion">Expansion</a><a id="Expansion-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -314,7 +314,7 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Installed-capacity-1" href="#Installed-capacity-1">Installed capacity</a></h3><table class="tabelle">
+</table><h3 id="Installed-capacity"><a class="docs-heading-anchor" href="#Installed-capacity">Installed capacity</a><a id="Installed-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Installed-capacity" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -380,7 +380,7 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Operated-capacity-1" href="#Operated-capacity-1">Operated capacity</a></h3><table class="tabelle">
+</table><h3 id="Operated-capacity"><a class="docs-heading-anchor" href="#Operated-capacity">Operated capacity</a><a id="Operated-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Operated-capacity" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -463,7 +463,7 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h1><a class="nav-anchor" id="Costs-1" href="#Costs-1">Costs</a></h1><p>emissionPrc is included via use,</p><p>dimensions just picked for internal purposes, more detailed information via reporting functions</p><h3><a class="nav-anchor" id="Expansion-cost-1" href="#Expansion-cost-1">Expansion cost</a></h3><p>sdf</p><table class="tabelle">
+</table><h1 id="Costs"><a class="docs-heading-anchor" href="#Costs">Costs</a><a id="Costs-1"></a><a class="docs-heading-anchor-permalink" href="#Costs" title="Permalink"></a></h1><p>emissionPrc is included via use,</p><p>dimensions just picked for internal purposes, more detailed information via reporting functions</p><h3 id="Expansion-cost"><a class="docs-heading-anchor" href="#Expansion-cost">Expansion cost</a><a id="Expansion-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion-cost" title="Permalink"></a></h3><p>sdf</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -498,7 +498,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Operating-cost-1" href="#Operating-cost-1">Operating cost</a></h3><p>sdf</p><table class="tabelle">
+</table><h3 id="Operating-cost"><a class="docs-heading-anchor" href="#Operating-cost">Operating cost</a><a id="Operating-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Operating-cost" title="Permalink"></a></h3><p>sdf</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -533,7 +533,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Variable-cost-1" href="#Variable-cost-1">Variable cost</a></h3><table class="tabelle">
+</table><h3 id="Variable-cost"><a class="docs-heading-anchor" href="#Variable-cost">Variable cost</a><a id="Variable-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Variable-cost" title="Permalink"></a></h3><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -569,7 +569,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Trade-cost-1" href="#Trade-cost-1">Trade cost</a></h3><p>and revenues!</p><table class="tabelle">
+</table><h3 id="Trade-cost"><a class="docs-heading-anchor" href="#Trade-cost">Trade cost</a><a id="Trade-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Trade-cost" title="Permalink"></a></h3><p>and revenues!</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -603,7 +603,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3><a class="nav-anchor" id="Curtailment-and-loss-of-load-cost-1" href="#Curtailment-and-loss-of-load-cost-1">Curtailment and loss-of-load cost</a></h3><p>costs can be negative</p><table class="tabelle">
+</table><h3 id="Curtailment-and-loss-of-load-cost"><a class="docs-heading-anchor" href="#Curtailment-and-loss-of-load-cost">Curtailment and loss-of-load cost</a><a id="Curtailment-and-loss-of-load-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Curtailment-and-loss-of-load-cost" title="Permalink"></a></h3><p>costs can be negative</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -637,4 +637,4 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><footer><hr/><a class="previous" href="../parameter_list/"><span class="direction">Previous</span><span class="title">Parameter list</span></a><a class="next" href="../constraints/"><span class="direction">Next</span><span class="title">Constraints</span></a></footer></article></body></html>
+</table></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parameter_list/">« Parameter list</a><a class="docs-footer-nextpage" href="../constraints/">Constraints »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Sunday 12 July 2020 14:18">Sunday 12 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
