@@ -27,7 +27,7 @@ p.norm {
 font-weight: normal;
 font-size: medium;
 }
-</style><h1 id="Parameter-overview"><a class="docs-heading-anchor" href="#Parameter-overview">Parameter overview</a><a id="Parameter-overview-1"></a><a class="docs-heading-anchor-permalink" href="#Parameter-overview" title="Permalink"></a></h1><p>hier wird auch read-in allgemein behandelt zum teil  </p><h1 id="Read-in"><a class="docs-heading-anchor" href="#Read-in">Read-in</a><a id="Read-in-1"></a><a class="docs-heading-anchor-permalink" href="#Read-in" title="Permalink"></a></h1><p>analgous to sets, example input table: explain what gets ignored (here technology and comments) additonal parameter/value columns possible erwähne verschiedene konventionen analog zu &quot;all&quot;</p><table class="tabelle2">
+</style><h1 id="Parameter-overview"><a class="docs-heading-anchor" href="#Parameter-overview">Parameter overview</a><a id="Parameter-overview-1"></a><a class="docs-heading-anchor-permalink" href="#Parameter-overview" title="Permalink"></a></h1><p>Parameter data is provided in <code>.csv</code> csv files starting with <code>par_</code> and transferred into <code>ParElement</code> objects (LINK). An inheritance algorithm that exploits the tree structure of sets obtains the parameter being used in the model&#39;s underlying optimzation problem from the read-in data. This avoids huge but largely redundant input files and allows for lean and flexible models.</p><h1 id="Read-in"><a class="docs-heading-anchor" href="#Read-in">Read-in</a><a id="Read-in-1"></a><a class="docs-heading-anchor-permalink" href="#Read-in" title="Permalink"></a></h1><p>In contrast to sets, the naming of parameter files and what data is provided in which file is entirely up to the user. For instance, data for the same parameter can be spread across different files and within one file multiple parameters can be defined. Parameter data is provided in a pivot format where the column <code>parameter</code> determines the respective parameter and the column <code>value</code> its respective value. Additional columns specify the nodes within the hierarchical trees of sets a value applies to. Therefore names of these coloumns are comprised of the set&#39;s name and, if the set is organized in a tree with multiple levels, the number of the respective level.</p><p>The <code>all</code> keyword can be used analgously to sets (see here for description). Columns that do not contain a set name (i.e. <code>region</code>, <code>timestep</code>, <code>carrier</code>, <code>technology</code>, <code>mode</code>, or <code>id</code>) or keyword (i.e. <code>parameter</code> and <code>value</code>) are not read in and can be used for documentation. To define multiple parameters within the same row, several numbered <code>parameter</code>/<code>value</code> columns can be provided (see as example).</p><p>As an example, the table below shows the defintion of the discount rate parameter in the example model found in the <code>par_techInvest.csv</code> file. (LINKS)</p><table class="tabelle2">
 <tbody>
 <tr>
 <td style="border-right:none"><strong>timestep_1</strong></td>
@@ -44,13 +44,6 @@ font-size: medium;
 <td style="border-right:none;text-align:center">0.0</td>
 </tr>
 <tr>
-<td style="border-right:none">2020</td>
-<td style="border-right:none"></td>
-<td></td>
-<td style="border-right:none">rateDisc</td>
-<td style="border-right:none;text-align:center">0.02</td>
-</tr>
-<tr>
 <td style="border-right:none">2030</td>
 <td style="border-right:none">West</td>
 <td>WestSouth</td>
@@ -65,7 +58,7 @@ font-size: medium;
 <td style="border-right:none;text-align:center">0.03</td>
 </tr>
 </tbody>
-</table><h1 id="Inheritance"><a class="docs-heading-anchor" href="#Inheritance">Inheritance</a><a id="Inheritance-1"></a><a class="docs-heading-anchor-permalink" href="#Inheritance" title="Permalink"></a></h1><p>tipp: dont overdo it with the inheritance, will decrease performance</p><p>granularity of parameters acutally required within model show inheritance process step-by-step for example</p><table class="tabelle2">
+</table><p>In case, a set is included in the dimensions of a parameter, but no node of that set is assigned for a respective value, the very top node of the tree is assigned instead.</p><h1 id="Inheritance"><a class="docs-heading-anchor" href="#Inheritance">Inheritance</a><a id="Inheritance-1"></a><a class="docs-heading-anchor-permalink" href="#Inheritance" title="Permalink"></a></h1><p>The cominations of sets or instances parameters are provided for within the input data do not need to match the instances the same parameter is required within the model. The inheritance algorithm automatically obtains the required values from the provided data for each parameter.</p><p>MEHR WARUM DAS IN DER ANWENDUNG SO PRAKTISCH IST</p><h3 id="Modes-of-inheritance"><a class="docs-heading-anchor" href="#Modes-of-inheritance">Modes of inheritance</a><a id="Modes-of-inheritance-1"></a><a class="docs-heading-anchor-permalink" href="#Modes-of-inheritance" title="Permalink"></a></h3><p>As already discussed when sketching the inheritance algorithm, there are different ways to obtain data from other nodes in the tree. These include:</p><p><em>upwards</em> inherit from the closests ancestral node that is assigned a value</p><p><em>average</em> going downwards in the tree level-by-level and take the average</p><p><em>sum</em> sdfs</p><p><em>average</em> sdfs</p><p><em>sum</em> sdfsd</p><h3 id="Inheritance-procedure"><a class="docs-heading-anchor" href="#Inheritance-procedure">Inheritance procedure</a><a id="Inheritance-procedure-1"></a><a class="docs-heading-anchor-permalink" href="#Inheritance-procedure" title="Permalink"></a></h3><p>As an example, the algorithm is sketched for the parameter discount rates from the demo problem. To this end, the instances actually required for this parameter are given by the table below.</p><table class="tabelle2">
 <tbody>
 <tr>
 <td style="border-right:none"><strong>timestep_superordinate_dispatch</strong></td>
@@ -120,10 +113,10 @@ font-size: medium;
 <td style="border-right:none">West</td>
 </tr>
 </tbody>
-</table><h3 id="Inheritance-procedure"><a class="docs-heading-anchor" href="#Inheritance-procedure">Inheritance procedure</a><a id="Inheritance-procedure-1"></a><a class="docs-heading-anchor-permalink" href="#Inheritance-procedure" title="Permalink"></a></h3><p>how inheritance algorithm populates data</p><ol class="nest">
+</table><p>This table is now populated with data in a 3-step process:</p><ol class="nest">
 <li class="nest2"; style="font-size:large;font-weight:bold">&nbsp;&nbsp;&nbsp;Direct matches</font-size><br>
-<p class="norm"; style = "text-indent:1.85em">
-blablalksdjfkl aslkdjflksdjflk
+<p class="norm"; style = "text-indent:0em">
+First, values are assigned where instances of the required data exactly match with the input data. For example, data for `2020` and `WestSouth` is specifically provided and can be used directly.
 <table class="tabelle2">
 <tbody>
 <tr>
@@ -196,12 +189,13 @@ blablalksdjfkl aslkdjflksdjflk
 </p>
 </li>
 <li class="nest2"; style="font-size:large;font-weight:bold">&nbsp;&nbsp;&nbsp;Go along inheritance rules<br>
-<p class="norm"; style = "text-indent:1.85em">
-sdfsdfsdf
+<p class="norm"; style = "text-indent:0em">
+Next, the algorithm consecutively applies the inheritance rules of the respective parameter. For each parameter these rules are documented in the <a href="../parameter_list">parameter list</a>
 <ol class="nest">
 <li class="nest"; style="font-size:medium;font-weight:bold">&nbsp;&nbsp;&nbsp;$Ts_{sup}$	&#8594; upwards<br>
 <p class="norm">
-sdfsdf
+For discount rates, the first rule is to try to obtain additional values by moving upwards in the hierarchical trees of time-steps.
+In case of the first row of input data with value `0.0`, the very top node within the tree of time-steps is assigned, because no time-step is specified. Therefore, just based on time-steps this value could now be assigned anywhere data is still missing. However, while applying for all time-steps, the entry does only require to a specifc region, which is `West`. As a result, the value is only inheritited for the entries with matching regions:
 <table class="tabelle2">
 <tbody>
 <tr>
@@ -275,7 +269,7 @@ sdfsdf
 </p>
 <li class="nest"; style="font-size:medium;font-weight:bold">&nbsp;&nbsp;&nbsp;$R_{exp}$ &#8594; upwards<br>
 <p class="norm">
-sdf
+Next, the same concept is applied analgously to regions. By moving up the tree of regions, the input value specified for `East` is now assigned for the descendant regions `EastNorth` and `EastSouth` as well.
 <table class="tabelle2">
 <tbody>
 <tr>
@@ -349,18 +343,18 @@ sdf
 </li>
 <li class="nest"; style="font-size:medium;font-weight:bold">&nbsp;&nbsp;&nbsp;$Ts_{sup}$ &#8594; average<br>
 <p class="norm">
-sdf
+While the previous steps moved upwards the tree to obtain additional data from ancestral nodes, it is also possible to move downwards and assign the average of values defined for ancestral nodes. This would for example be applied, if efficiencies are provided hourly in the input data, but required daily within the model (see the corresponding inheritance rules for the <a href="../parameter_list/#Efficiency-1"> efficiency parameter</a>). In this example, this does not occur, because no data was defined for any descendant nodes.
 </p>
 </li>
 <li class="nest"; style="font-size:medium;font-weight:bold">&nbsp;&nbsp;&nbsp;$R_{exp}$	&#8594; average<br>
 <p class="norm">
-sdf
+analgously to the former step.
 </p>
 </li>
 </ol></li>
 <li class="nest2"; style="font-size:large;font-weight:bold">&nbsp;&nbsp;&nbsp;Use default value<br>
-<p class="norm"; style = "text-indent:1.85em">
-sdf
+<p class="norm"; style = "text-indent:0em">
+At last, all cases that were not assigned a value via inheritance are assigned the default value of the respective parameter. In case a parameter does not have a default these cases are dropped.
 <table class="tabelle2">
 <tbody>
 <tr>
@@ -432,4 +426,4 @@ sdf
 </table>
 </p>
 </li>
-</ol><h3 id="Modes-of-inheritance"><a class="docs-heading-anchor" href="#Modes-of-inheritance">Modes of inheritance</a><a id="Modes-of-inheritance-1"></a><a class="docs-heading-anchor-permalink" href="#Modes-of-inheritance" title="Permalink"></a></h3><p>list other types of inheritance:</p><ul><li><em>upwards</em></li><li><em>average</em></li><li><em>sum</em></li><li><em>average</em> *</li><li><em>sum</em> *</li></ul></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parts/">« Parts</a><a class="docs-footer-nextpage" href="../parameter_list/">Parameter list »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Sunday 26 July 2020 18:09">Sunday 26 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</ol><div class="admonition is-warning"><header class="admonition-header">Do not overuse inheritance</header><div class="admonition-body"><p>Poorly provided input data, especially time-series data, can massively increase the run-time of the inheritance algorithm. For example, if your raw data is provided quarter-hourly, but the most detailed resolution you acutually want to model is hourly, you should aggregate the data to hours yourself before providing it to the model. To define a quarter-hourly resolution below the hourly resolution, feed-in the unaltered data and have the inheritance algorithm aggregate it instead, is possible but highly inefficient.</p></div></div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parts/">« Parts</a><a class="docs-footer-nextpage" href="../parameter_list/">Parameter list »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 27 July 2020 17:15">Monday 27 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
