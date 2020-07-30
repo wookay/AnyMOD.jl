@@ -34,8 +34,8 @@ ul.liste {
   display:inline-block;
   text-align: left;
 }
-</style><h1 id="Parameter-list"><a class="docs-heading-anchor" href="#Parameter-list">Parameter list</a><a id="Parameter-list-1"></a><a class="docs-heading-anchor-permalink" href="#Parameter-list" title="Permalink"></a></h1><p>In the following all parameters available in AnyMOD are listed. Information includes the name used in the input files and throughout the model, the parameters&#39; unit, its dimensions according to the symbols introduced in <a href="../sets/#Sets-and-Mappings">Sets and Mappings</a>, the default value and the inheritance rules. In addition, related model elements and the part a parameter is assigned are documented.</p><h1 id="Dispatch-of-technologies"><a class="docs-heading-anchor" href="#Dispatch-of-technologies">Dispatch of technologies</a><a id="Dispatch-of-technologies-1"></a><a class="docs-heading-anchor-permalink" href="#Dispatch-of-technologies" title="Permalink"></a></h1><p>The parameters listed here describe the conversion and storage of energy carriers by technologies. As a result, each of these parameters can vary by operational mode. The following two diagramms serve as a remainder on how conversion and storage are generally modelled in AnyMOD.</p><p style="text-align:center;"><img src="../assets/convTech.svg" width="64%"/>
-<p style="text-align:center;"><img src="../assets/stTech.svg" width="80%"/><h3 id="Availability"><a class="docs-heading-anchor" href="#Availability">Availability</a><a id="Availability-1"></a><a class="docs-heading-anchor-permalink" href="#Availability" title="Permalink"></a></h3><p>Technical availability of the operated capacity. Since operated capacity is split into conversion, storage-input, storage-output, and storage-size, the same distinction applies to availabilities.</p><table class="tabelle">
+</style><h1 id="Parameter-list"><a class="docs-heading-anchor" href="#Parameter-list">Parameter list</a><a id="Parameter-list-1"></a><a class="docs-heading-anchor-permalink" href="#Parameter-list" title="Permalink"></a></h1><p>In the following all parameters available in AnyMOD are listed. Information includes the name used in the input files and throughout the model, the parameters&#39; unit, its dimensions according to the symbols introduced in <a href="../sets/#Sets-and-Mappings">Sets and Mappings</a>, the default value and the inheritance rules. In addition, related model elements and the part a parameter is assigned are documented.</p><h1 id="Dispatch-of-technologies"><a class="docs-heading-anchor" href="#Dispatch-of-technologies">Dispatch of technologies</a><a id="Dispatch-of-technologies-1"></a><a class="docs-heading-anchor-permalink" href="#Dispatch-of-technologies" title="Permalink"></a></h1><p>The parameters listed here describe the conversion and storage of energy carriers by technologies. As a result, each of these parameters can vary by operational mode. If any mode specific values are provided, these replace mode unspecific data.</p><p>The following two diagrams serve as a remainder on how conversion and storage are generally modelled in AnyMOD.</p><p style="text-align:center;"><img src="../assets/convTech.svg" width="64%"/>
+<p style="text-align:center;"><img src="../assets/stTech.svg" width="80%"/><h3 id="Availability"><a class="docs-heading-anchor" href="#Availability">Availability</a><a id="Availability-1"></a><a class="docs-heading-anchor-permalink" href="#Availability" title="Permalink"></a></h3><p>Technical availability of the operated capacity.</p><p>Since operated capacity is split into conversion, storage-input, storage-output, and storage-size, the same distinction applies to availabilities.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -102,7 +102,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Efficiency"><a class="docs-heading-anchor" href="#Efficiency">Efficiency</a><a id="Efficiency-1"></a><a class="docs-heading-anchor-permalink" href="#Efficiency" title="Permalink"></a></h3><p>Efficiency of converting or storing energy carriers. For conversion the parameter controls the ratio between in- and output carriers. For storage it determines the losses charging to and discharging from the storage system is subjected to.</p><table class="tabelle">
+</table><h3 id="Efficiency"><a class="docs-heading-anchor" href="#Efficiency">Efficiency</a><a id="Efficiency-1"></a><a class="docs-heading-anchor-permalink" href="#Efficiency" title="Permalink"></a></h3><p>Efficiency of converting or storing energy carriers.</p><p>For conversion the parameter controls the ratio between in- and output carriers. For storage it determines the losses charging to and discharging from the storage system is subjected to.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -168,7 +168,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Variable-cost"><a class="docs-heading-anchor" href="#Variable-cost">Variable cost</a><a id="Variable-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Variable-cost" title="Permalink"></a></h3><p>Costs imposed on different types of quantites dispatched. Note that for storage these costs are incurred on quantities as specified in the diagram above. This means <code>stIn</code> quantities still include charging losses, while <code>stOut</code> quantities are aready corrected for losses from discharging.</p><table class="tabelle">
+</table><h3 id="Variable-cost"><a class="docs-heading-anchor" href="#Variable-cost">Variable cost</a><a id="Variable-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Variable-cost" title="Permalink"></a></h3><p>Costs imposed on different types of quantities dispatched.</p><p>Note that for storage costs are incurred on quantities as specified in the diagram above. This means <code>stIn</code> quantities still include charging losses, while <code>stOut</code> quantities are already corrected for losses from discharging.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -213,7 +213,7 @@ ul.liste {
 <td><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Ratios-of-carrier-use-and-generation"><a class="docs-heading-anchor" href="#Ratios-of-carrier-use-and-generation">Ratios of carrier use and generation</a><a id="Ratios-of-carrier-use-and-generation-1"></a><a class="docs-heading-anchor-permalink" href="#Ratios-of-carrier-use-and-generation" title="Permalink"></a></h3><p>Restricting the share of a single carrier on total use or generation. The share can either be fixed or imposed as a lower or upper limit. One practical example for the application of this parameter is modelling the power-to-heat ratio of cogeneration plants (see <a href="https://github.com/leonardgoeke/AnyMOD.jl/blob/master/examples/demo/par_techDispatch.csv"><code>par_techDispatch.csv</code></a>).</p><table class="tabelle">
+</table><h3 id="Ratios-of-carrier-use-and-generation"><a class="docs-heading-anchor" href="#Ratios-of-carrier-use-and-generation">Ratios of carrier use and generation</a><a id="Ratios-of-carrier-use-and-generation-1"></a><a class="docs-heading-anchor-permalink" href="#Ratios-of-carrier-use-and-generation" title="Permalink"></a></h3><p>Restricting the share of a single carrier on total use or generation. The share can either be fixed or imposed as a lower or upper limit.</p><p>One practical example for the application of this parameter is modelling the power-to-heat ratio of cogeneration plants (see <a href="https://github.com/leonardgoeke/AnyMOD.jl/blob/master/examples/demo/par_techDispatch.csv"><code>par_techDispatch.csv</code></a>).</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -258,7 +258,11 @@ ul.liste {
 </tbody>
 </table><h3 id="Storage-self-discharge"><a class="docs-heading-anchor" href="#Storage-self-discharge">Storage self-discharge</a><a id="Storage-self-discharge-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-self-discharge" title="Permalink"></a></h3>
 <p class="norm">
-Automatic reduction of stored energy within a storage system. If the storaged carrier is assigned an <a href="../parameter_list/#Emission-factor-1">emission factor</a> and <a href="../model_object/#Optional-arguments-1"><code>emissionLoss</code></a> is set to <code>true</code>, these losses are subject to emissions.
+Automatic reduction of stored energy within a storage system.
+</p>
+
+<p class="norm">
+If the stored carrier is assigned an <a href="../parameter_list/#Emission-factor-1">emission factor</a> and <a href="../model_object/#Optional-arguments-1"><code>emissionLoss</code></a> is set to <code>true</code>, these losses are subject to emissions.
 </p>
 
 <table class="tabelle">
@@ -306,12 +310,13 @@ Automatic reduction of stored energy within a storage system. If the storaged ca
 </tr>
 </tbody>
 </table><h3 id="Storage-inflow"><a class="docs-heading-anchor" href="#Storage-inflow">Storage inflow</a><a id="Storage-inflow-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-inflow" title="Permalink"></a></h3><p class="norm">
-External charging of the storage system. Inflows can also be negative and are not subject to charging losses. The most important application of this parameter are natural inflows into hydro storages.
+External charging of the storage system. Inflows can also be negative and are not subject to charging losses.
 </p>
 
 <p class="norm">
-Flows have to be provided in power units and are converted into energy quantities according to the temporal resolution of the respective carrier (e.g. at a daily resoultion 2 GW translate into of 48 GWh). This approach ensures parameters do not need to be adjusted when the temporal resoultion is changed.
+Flows have to be provided in power units and are converted into energy quantities according to the temporal resolution of the respective carrier (e.g. at a daily resolution 2 GW translate into of 48 GWh). This approach ensures parameters do not need to be adjusted when the temporal resolution is changed. The most important application of this parameter are natural inflows into hydro storages.
 </p>
+
 
 <table class="tabelle">
 <tbody>
@@ -423,7 +428,10 @@ Flows have to be provided in power units and are converted into energy quantitie
 </tbody>
 </table><h3 id="Exchange-losses"><a class="docs-heading-anchor" href="#Exchange-losses">Exchange losses</a><a id="Exchange-losses-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-losses" title="Permalink"></a></h3>
 <p class="norm">
-Losses occuring when energy is exchanged between two regions. The parameter <code>lossExc</code> applies for both directions and will be overwritten by the directed <code>lossExcDir</code>. If the exchanged carrier is assigned an <a href="../parameter_list/#Emission-factor-1">emission factor</a> and <a href="../model_object/#Optional-arguments-1"><code>emissionLoss</code></a> is set to <code>true</code>, these losses are subject to emissions.
+Losses occurring when energy is exchanged between two regions. The parameter <code>lossExc</code> applies for both directions and will be overwritten by the directed <code>lossExcDir</code>.
+</p>
+<p class="norm">
+If the exchanged carrier is assigned an <a href="../parameter_list/#Emission-factor-1">emission factor</a> and <a href="../model_object/#Optional-arguments-1"><code>emissionLoss</code></a> is set to <code>true</code>, these losses are subject to emissions.
 </p>
 
 <table class="tabelle">
@@ -492,7 +500,7 @@ Losses occuring when energy is exchanged between two regions. The parameter <cod
 <td colspan="2"; style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3 id="Exchange-cost"><a class="docs-heading-anchor" href="#Exchange-cost">Exchange cost</a><a id="Exchange-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-cost" title="Permalink"></a></h3><p>Costs imposed on the exchange of quantities. Cost are equally split between the exporting and importing region. The parameter <code>costVarExc</code> applies for both directions and will be overwritten by the directed <code>costVarExcDir</code>.</p><table class="tabelle">
+</table><h3 id="Exchange-cost"><a class="docs-heading-anchor" href="#Exchange-cost">Exchange cost</a><a id="Exchange-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-cost" title="Permalink"></a></h3><p>Costs imposed on the exchange of quantities. Cost are equally split between the exporting and importing region.</p><p>The parameter <code>costVarExc</code> applies for both directions and will be overwritten by the directed <code>costVarExcDir</code>.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -559,7 +567,11 @@ Losses occuring when energy is exchanged between two regions. The parameter <cod
 </tr>
 </tbody>
 </table><h3 id="Trade-price"><a class="docs-heading-anchor" href="#Trade-price">Trade price</a><a id="Trade-price-1"></a><a class="docs-heading-anchor-permalink" href="#Trade-price" title="Permalink"></a></h3><p class="norm">
-Price for buying or selling an energy carrier on an external market. Can be combined with the parameter <a href="../parameter_list/#Trade-capacity-1">trade capacity</a> to create stepped demand and supply curves (see documentation on trade capacity for details).
+Price for buying or selling an energy carrier on an external market.
+</p>
+
+<p class="norm">
+Can be combined with the parameter <a href="../parameter_list/#Trade-capacity-1">trade capacity</a> to create stepped demand and supply curves (see following documentation for details).
 </p>
 
 <table class="tabelle">
@@ -606,11 +618,11 @@ Price for buying or selling an energy carrier on an external market. Can be comb
 </tr>
 </tbody>
 </table><h3 id="Trade-capacity"><a class="docs-heading-anchor" href="#Trade-capacity">Trade capacity</a><a id="Trade-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Trade-capacity" title="Permalink"></a></h3><p class="norm">
-Capacity avaiable for buying or selling an energy carrier on an external market.
+Capacity available for buying or selling an energy carrier on an external market.
 </p>
 
 <p class="norm">
-Capacity has to be provided in power units and is converted into energy quantities according to the temporal resolution of the respective carrier (e.g. at a daily resoultion 2 GW translate into of 48 GWh). This approach ensures parameters do not need to be adjusted when the temporal resoultion is changed.
+Capacity has to be provided in power units and is converted into energy quantities according to the temporal resolution of the respective carrier (e.g. at a daily resolution 2 GW translate into 48 GWh). This approach ensures parameters do not need to be adjusted when the temporal resolution is changed.
 </p>
 
 <table class="tabelle">
@@ -662,7 +674,7 @@ By assigning the same <code>id</code> to a <a href="../parameter_list/#Trade-pri
 </p>
 
 <p class="norm">
-For example, the table below enables the import of <code>hydrogen</code> to the region <code>West</code> at 100 €/MWh, but limits the import capacity to 20 GW. When imposing this limit, the capacity is scaled acording to the temporal resolution hydorgen is modelled at. So, at a yearly resolution 20 GW would translate to 175.2 TWh (= 20 GW	&times; 8760 h).
+For example, the table below enables the import of <code>hydrogen</code> to the region <code>West</code> at 100 €/MWh, but limits the import capacity to 20 GW. When imposing this limit, the capacity is scaled according to the temporal resolution hydrogen is modelled at. So, at a yearly resolution 20 GW would translate to 175.2 TWh (= 20 GW	&times; 8760 h).
 </p>
 
 <table class="tabelle2">
@@ -692,7 +704,7 @@ For example, the table below enables the import of <code>hydrogen</code> to the 
 </table>
 
 <p class="norm">
-This table, will create an additional electricity demand of 2.0 and 1.0 GW with a willingness-to-pay of 60 and 90 €/MWh, respectively. By adding columns these values could be further differentiated by time-step and region.
+Alternatively, this definition creates an additional electricity demand of 2.0 and 1.0 GW with a willingness-to-pay of 60 and 90 €/MWh, respectively. By adding more columns values could be further differentiated by time-step and region.
 
 <table class="tabelle2">
 <tbody>
@@ -728,7 +740,7 @@ This table, will create an additional electricity demand of 2.0 and 1.0 GW with 
 </tr>
 </tbody>
 </table>
-</p><h1 id="Other-dispatch"><a class="docs-heading-anchor" href="#Other-dispatch">Other dispatch</a><a id="Other-dispatch-1"></a><a class="docs-heading-anchor-permalink" href="#Other-dispatch" title="Permalink"></a></h1><h3 id="Demand"><a class="docs-heading-anchor" href="#Demand">Demand</a><a id="Demand-1"></a><a class="docs-heading-anchor-permalink" href="#Demand" title="Permalink"></a></h3><p>Inelastic demand for an energy carrier.</p><p>Capacity has to be provided in power units and is converted into energy quantities according to the temporal resolution of the respective carrier (e.g. at a daily resoultion 20 GW translate into 480 GWh). This approach ensures parameters do not need to be adjusted when the temporal resoultion is changed.</p><table class="tabelle">
+</p><h1 id="Other-dispatch"><a class="docs-heading-anchor" href="#Other-dispatch">Other dispatch</a><a id="Other-dispatch-1"></a><a class="docs-heading-anchor-permalink" href="#Other-dispatch" title="Permalink"></a></h1><h3 id="Demand"><a class="docs-heading-anchor" href="#Demand">Demand</a><a id="Demand-1"></a><a class="docs-heading-anchor-permalink" href="#Demand" title="Permalink"></a></h3><p>Inelastic demand for an energy carrier.</p><p>Capacity has to be provided in power units and is converted into energy quantities according to the temporal resolution of the respective carrier (e.g. at a daily resolution 20 GW translate into 480 GWh). This approach ensures parameters do not need to be adjusted when the temporal resolution is changed.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -767,7 +779,7 @@ This table, will create an additional electricity demand of 2.0 and 1.0 GW with 
 <td><a href="../parts/#Balance-1">balance</a></td>
 </tr>
 </tbody>
-</table><h3 id="Cost-of-curtailment-and-loss-of-load"><a class="docs-heading-anchor" href="#Cost-of-curtailment-and-loss-of-load">Cost of curtailment and loss of load</a><a id="Cost-of-curtailment-and-loss-of-load-1"></a><a class="docs-heading-anchor-permalink" href="#Cost-of-curtailment-and-loss-of-load" title="Permalink"></a></h3><p>Variable costs excess generation or unmet demand is subjected to. Costs can also be negative.</p><table class="tabelle">
+</table><h3 id="Cost-of-curtailment-and-loss-of-load"><a class="docs-heading-anchor" href="#Cost-of-curtailment-and-loss-of-load">Cost of curtailment and loss of load</a><a id="Cost-of-curtailment-and-loss-of-load-1"></a><a class="docs-heading-anchor-permalink" href="#Cost-of-curtailment-and-loss-of-load" title="Permalink"></a></h3><p>Variable costs excess generation or unmet demand is subjected to. Costs can also be negative (=revenues).</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -814,7 +826,7 @@ This table, will create an additional electricity demand of 2.0 and 1.0 GW with 
 Here, all parameters relevant to the expansion of conversion, storage, and exchange capacity are listed.
 </p>
 <p class="norm">
-At this point it is important to stress that, as displayed in the <a href="#Dispatch-of-technologies">technology diagrams</a>, <strong>AnyMOD always indicates capacities before effiency losses!</strong> For instance capacity of a gas power plant does not denote its maxium electricity output, but the maximum gas input. This approach is pursued, because <a href="../parameter_list/#Efficiency-1">efficiency</a> is not a constant and differs by time-step, region and mode. As a result, maximum output varies within the dispatch too and is not suited to universally describe installed capacities.
+At this point it is important to stress that, as displayed in the <a href="#Dispatch-of-technologies">technology diagrams</a>, <strong>AnyMOD always indicates capacities before efficiency losses!</strong> For instance capacity of a gas power plant does not denote its maximum electricity output, but the maximum gas input. This approach is pursued, because <a href="../parameter_list/#Efficiency-1">efficiency</a> is not a constant and can differ by time-step, region, and mode. As a result, maximum output varies within the dispatch too and is not suited to universally describe installed capacities.
 </p><h3 id="Discount-rate"><a class="docs-heading-anchor" href="#Discount-rate">Discount rate</a><a id="Discount-rate-1"></a><a class="docs-heading-anchor-permalink" href="#Discount-rate" title="Permalink"></a></h3><p>Overall rate to discount all expenditures to the present. See <a href="../constraints/#Cost-equations">Cost equations</a> for details on use.</p><table class="tabelle">
 <tbody>
 <tr>
@@ -910,7 +922,7 @@ At this point it is important to stress that, as displayed in the <a href="#Disp
 <td colspan="3"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Expansion-cost"><a class="docs-heading-anchor" href="#Expansion-cost">Expansion cost</a><a id="Expansion-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion-cost" title="Permalink"></a></h3><p>Costs of capacity expansion (or investment).</p><div class="admonition is-warning"><header class="admonition-header">Costs data before effiency</header><div class="admonition-body"><p>Ensure the cost data provided relates to capacity <strong>before effiency</strong> (see beginning of section)! In general, costs before effiency can be obtained by dividing costs after effiency with a nominal efficiency <span>$K_{before} = \frac{K_{after}}{\eta}$</span>.</p></div></div><table class="tabelle">
+</table><h3 id="Expansion-cost"><a class="docs-heading-anchor" href="#Expansion-cost">Expansion cost</a><a id="Expansion-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion-cost" title="Permalink"></a></h3><p>Costs of capacity expansion (or investment).</p><div class="admonition is-warning"><header class="admonition-header">Costs data before efficiency</header><div class="admonition-body"><p>Ensure the cost data provided relates to capacity <strong>before efficiency</strong> (see beginning of section)! In general, costs before efficiency can be obtained by dividing costs after efficiency with a nominal efficiency <span>$K_{before} = \frac{K_{after}}{\eta}$</span>.</p></div></div><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -966,7 +978,7 @@ At this point it is important to stress that, as displayed in the <a href="#Disp
 <td colspan="3"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Operating-cost"><a class="docs-heading-anchor" href="#Operating-cost">Operating cost</a><a id="Operating-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Operating-cost" title="Permalink"></a></h3><p>Costs of operating installed capacities.</p><div class="admonition is-warning"><header class="admonition-header">Costs data before effiency</header><div class="admonition-body"><p>Ensure the cost data provided relates to capacity <strong>before effiency</strong> (see beginning of section)! In general, costs before effiency can be obtained by dividing costs after effiency with a nominal efficiency <span>$K_{before} = \frac{K_{after}}{\eta}$</span>.</p></div></div><table class="tabelle">
+</table><h3 id="Operating-cost"><a class="docs-heading-anchor" href="#Operating-cost">Operating cost</a><a id="Operating-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Operating-cost" title="Permalink"></a></h3><p>Costs of operating installed capacities.</p><div class="admonition is-warning"><header class="admonition-header">Costs data before efficiency</header><div class="admonition-body"><p>Ensure the cost data provided relates to capacity <strong>before efficiency</strong> (see beginning of section)! In general, costs before efficiency can be obtained by dividing costs after efficiency with a nominal efficiency <span>$K_{before} = \frac{K_{after}}{\eta}$</span>.</p></div></div><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1025,7 +1037,7 @@ At this point it is important to stress that, as displayed in the <a href="#Disp
 <td colspan="3"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Technical-lifetime"><a class="docs-heading-anchor" href="#Technical-lifetime">Technical lifetime</a><a id="Technical-lifetime-1"></a><a class="docs-heading-anchor-permalink" href="#Technical-lifetime" title="Permalink"></a></h3><p>Time in years a capacity can be operated after construction. To avoid distortions lifetimes are advised to be divisible by the steps-size of capacity modelling (e.g rather using 20 or 25 instead of 23 when using 5-year steps).</p><table class="tabelle">
+</table><h3 id="Technical-lifetime"><a class="docs-heading-anchor" href="#Technical-lifetime">Technical lifetime</a><a id="Technical-lifetime-1"></a><a class="docs-heading-anchor-permalink" href="#Technical-lifetime" title="Permalink"></a></h3><p>Time in years a capacity can be operated after construction.</p><p>To avoid distortions lifetimes are advised to be divisible by the steps-size of capacity modelling (e.g rather using 20 or 25 instead of 23 when using 5-year steps).</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1081,7 +1093,7 @@ At this point it is important to stress that, as displayed in the <a href="#Disp
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3 id="Economic-lifetime"><a class="docs-heading-anchor" href="#Economic-lifetime">Economic lifetime</a><a id="Economic-lifetime-1"></a><a class="docs-heading-anchor-permalink" href="#Economic-lifetime" title="Permalink"></a></h3><p>Time in years to compute annuity costs of investment. Also determines the time-frame annuity costs are incurred over. To avoid distortions lifetimes are advised to be divisible by the steps-size of capacity modelling (e.g rather using 20 or 25 instead of 23 when using 5-year steps).</p><table class="tabelle">
+</table><h3 id="Economic-lifetime"><a class="docs-heading-anchor" href="#Economic-lifetime">Economic lifetime</a><a id="Economic-lifetime-1"></a><a class="docs-heading-anchor-permalink" href="#Economic-lifetime" title="Permalink"></a></h3><p>Time in years to compute annuity costs of investment. Also determines the time-frame annuity costs are incurred over.</p><p>To avoid distortions lifetimes are advised to be divisible by the steps-size of capacity modelling (e.g rather using 20 or 25 instead of 23 when using 5-year steps).</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1136,7 +1148,7 @@ At this point it is important to stress that, as displayed in the <a href="#Disp
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3 id="Construction-time"><a class="docs-heading-anchor" href="#Construction-time">Construction time</a><a id="Construction-time-1"></a><a class="docs-heading-anchor-permalink" href="#Construction-time" title="Permalink"></a></h3><p>Time in years for construction of capacity. Introduces an offset between the start of the economic and technical lifetime. To avoid distortions lifetimes are advised to be divisible by the steps-size of capacity modelling (e.g rather using 0 or 5 instead of 3 when using 5-year steps).</p><table class="tabelle">
+</table><h3 id="Construction-time"><a class="docs-heading-anchor" href="#Construction-time">Construction time</a><a id="Construction-time-1"></a><a class="docs-heading-anchor-permalink" href="#Construction-time" title="Permalink"></a></h3><p>Time in years for construction of capacity. This parameter introduces an offset between the start of the economic and technical lifetime.</p><p>To avoid distortions lifetimes are advised to be divisible by the steps-size of capacity modelling (e.g rather using 0 or 5 instead of 3 when using 5-year steps).</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1193,7 +1205,7 @@ At this point it is important to stress that, as displayed in the <a href="#Disp
 </tbody>
 </table><h1 id="Limits-on-quantities-dispatched"><a class="docs-heading-anchor" href="#Limits-on-quantities-dispatched">Limits on quantities dispatched</a><a id="Limits-on-quantities-dispatched-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-quantities-dispatched" title="Permalink"></a></h1>
 <p class="norm">
-Limits on variables also utilize the <a href="../parameter_overview/#Inheritance">inherithance algorithm</a>. Therefore, the way parameter data is provided determines how limits are enforced. For example, in the table below the upper limit of 100 GWh on the use of <code>biomass</code> will be imposed on the sum of use across <u>all</u> years, because the time-step dimension is undefined.
+Limits on variables also utilize the <a href="../parameter_overview/#Inheritance">inheritance algorithm</a>. Therefore, the way parameter data is provided determines how limits are enforced. For example, in the table below the upper limit of 100 GWh on the use of <code>biomass</code> will be imposed on the sum of use across <u>all years</u>, because the time-step dimension is undefined.
 </p>
 
 <table class="tabelle2">
@@ -1214,7 +1226,7 @@ Limits on variables also utilize the <a href="../parameter_overview/#Inheritance
 </table>
 
 <p class="norm">
-If instead the limit should apply to each year seperately, each of these years needs to be specified.
+If instead the limit should apply to <u>each year</u> seperately, each of these years needs to be specified.
 </p>
 
 <table class="tabelle2">
@@ -1264,7 +1276,7 @@ So far, the limit for each year still applies to the summed use of biomass acros
 </p>
 
 <p class="norm">
-Applying limits on the sum of variables across different years can be insightful in some case (for example in case of an emission budget from now until 2050). But it also is a likely and severe mistake to make if unfamiliar with anyMOD's specific mechanics. For this reason defining a limit that sums up variables from different years will cause a warning within the <a href="../error/#Error-handling">reporting file</a>  
+Applying limits on the sum of variables across different years can be insightful in some case (for example in case of an emission budget from now until 2050). But it also is a likely and severe mistake to make if unfamiliar with AnyMOD's specific mechanics. For this reason defining a limit that sums up variables from different years will cause a warning within the <a href="../error/#Error-handling">reporting file</a>  
 </p><h3 id="Limits-on-technology-dispatch"><a class="docs-heading-anchor" href="#Limits-on-technology-dispatch">Limits on technology dispatch</a><a id="Limits-on-technology-dispatch-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-technology-dispatch" title="Permalink"></a></h3><p class="norm">
 Limits on technology dispatch. In the inheritance rules <em>sum*</em> only applies for upper limits.
 </p>
@@ -1316,7 +1328,7 @@ Limits on technology dispatch. In the inheritance rules <em>sum*</em> only appli
 </tr>
 </tbody>
 </table><h3 id="Limits-on-exchange"><a class="docs-heading-anchor" href="#Limits-on-exchange">Limits on exchange</a><a id="Limits-on-exchange-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-exchange" title="Permalink"></a></h3><p class="norm">
-Limits on exchange quantites. In the inheritance rules <em>sum*</em> only applies for upper limits.
+Limits on exchange quantities. In the inheritance rules <em>sum*</em> only applies for upper limits.
 </p>
 
 <table class="tabelle">
@@ -1362,7 +1374,7 @@ Limits on exchange quantites. In the inheritance rules <em>sum*</em> only applie
 </tr>
 </tbody>
 </table><h3 id="Limits-on-trade,-curtailment-and-loss-of-load"><a class="docs-heading-anchor" href="#Limits-on-trade,-curtailment-and-loss-of-load">Limits on trade, curtailment and loss of load</a><a id="Limits-on-trade,-curtailment-and-loss-of-load-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-trade,-curtailment-and-loss-of-load" title="Permalink"></a></h3><p class="norm">
-Limits on traded and curtailed quantites as well as on unmet demand. In the inheritance rules <em>sum*</em> only applies for upper limits.
+Limits on traded and curtailed quantities as well as on unmet demand. In the inheritance rules <em>sum*</em> only applies for upper limits.
 </p>
 
 <table class="tabelle">
@@ -1409,7 +1421,7 @@ Limits on traded and curtailed quantites as well as on unmet demand. In the inhe
 </tr>
 </tbody>
 </table><h1 id="Limits-on-expansion-and-capacity"><a class="docs-heading-anchor" href="#Limits-on-expansion-and-capacity">Limits on expansion and capacity</a><a id="Limits-on-expansion-and-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Limits-on-expansion-and-capacity" title="Permalink"></a></h1><p class="norm">
-Limits on expansion and capacity are enforced analogously to <a href="#Limits-on-quantities-dispatched">limits on dispatch quantites</a>. Therefore, the same caution with regard to how limits are defined should be exercised. As explained for dispatched quantities in greater detail, the table below will impose an upper limit of 80 GW on the installed capacity of <code>wind</code> summed across <u>all</u> years.
+Limits on expansion and capacity are enforced analogously to <a href="#Limits-on-quantities-dispatched">limits on dispatch quantities</a>. Therefore, the same caution with regard to how limits are defined should be exercised. As explained for dispatched quantities in greater detail, the table below will impose an upper limit of 80 GW on the installed capacity of <code>wind</code> summed across <u>all years</u>.
 </p>
 
 <table class="tabelle2">
@@ -1430,7 +1442,7 @@ Limits on expansion and capacity are enforced analogously to <a href="#Limits-on
 </table>
 
 <p class="norm">
-While this table will actually enforce seperate limits of 80 GW on the installed capacity of <code>wind</code> in <u>each</u> year.
+While this table will actually enforce separate limits of 80 GW on the installed capacity of <code>wind</code> in <u>each year</u>.
 </p>
 
 <table class="tabelle2">
@@ -1448,11 +1460,12 @@ While this table will actually enforce seperate limits of 80 GW on the installed
 <td style="border-right:none;text-align:center">80.0</td>
 </tr>
 </tbody>
-</table>
-<h3 id="Storage-ratios"><a class="docs-heading-anchor" href="#Storage-ratios">Storage ratios</a><a id="Storage-ratios-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-ratios" title="Permalink"></a></h3>One technology can have four different kinds of capacity variables (see <a href="../sets/#Technologies">Technologies</a> for details): conversion, storage-input, storage-output, and storage-size. The ratios between these capacities can be fixed by the following parameters:<ul><li><code>stInToConv</code>: ratio between conversion and storage-input capacity</li><li><code>stOutToStIn</code>: ratio between storage-output and storage-input capacity</li><li><code>sizeToStIn</code>: ratio between storage-size and storage-input capacity, commonly referred to energy-to-power ratio</li></ul>Ratios are not directly applied to <a href="../variables/#Installed-capacity-1">installed capacities</a>, but to <a href="../variables/#Expansion-1">expansion variables</a> instead. Consequently, acutally installed capacities can deviate from the specified ratios, if any <a href="../parameter_list/#Residual-capacities-1">residual capacities</a> are provided. In case of <code>stock</code> technologies, which are not expanded, ratios are directly enforced to capacities. In this case any deviating <a href="../parameter_list/#Residual-capacities-1">residual capacities</a> are ignored.<div class="admonition is-info"><header class="admonition-header">Upper and lower limits on ratios</header><div class="admonition-body"><p>So far, AnyMOD does not support the setting of uppwer and lower limits on these ratios instead of fixing them. As a workaround, the code below shows how an upper limit of 10 on the energy-to-power ratio can be manually added to a model.</p><pre><code class="language-julia">for x in 1:size(model_object.parts.tech[:battery].var[:capaStIn],1)
-  capaIn = model_object.parts.tech[:battery].var[:capaStIn][x,:var]
-  capaSize = model_object.parts.tech[:battery].var[:capaStSize][x,:var]
-  @constraint(model_object.optModel, fixEP, capaIn*10 &gt;= capaSize)
+</table><h3 id="Storage-ratios"><a class="docs-heading-anchor" href="#Storage-ratios">Storage ratios</a><a id="Storage-ratios-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-ratios" title="Permalink"></a></h3>One technology can have four different kinds of capacity variables (see <a href="../sets/#Technologies">Technologies</a> for details): conversion, storage-input, storage-output, and storage-size. The ratios between these capacities can be fixed by the following parameters:<ul><li><code>stInToConv</code>: ratio between conversion and storage-input capacity</li><li><code>stOutToStIn</code>: ratio between storage-output and storage-input capacity</li><li><code>sizeToStIn</code>: ratio between storage-size and storage-input capacity, commonly referred to energy-to-power ratio</li></ul><p class="norm">
+Ratios are not directly applied to <a href="../variables/#Installed-capacity-1">installed capacities</a>, but to <a href="../variables/#Expansion-1">expansion variables</a> instead. Consequently, acutally installed capacities can deviate from the specified ratios, if any <a href="../parameter_list/#Residual-capacities-1">residual capacities</a> are provided. In case of <code>stock</code> technologies, which are not expanded, ratios are directly enforced to capacities. In this case any deviating <a href="../parameter_list/#Residual-capacities-1">residual capacities</a> are ignored.
+</p><div class="admonition is-info"><header class="admonition-header">Upper and lower limits on ratios</header><div class="admonition-body"><p>So far, AnyMOD does not support the setting of upper and lower limits on these ratios instead of fixing them. As a workaround, the code below shows how an upper limit of 10 on the energy-to-power ratio can be manually added to a model.</p><pre><code class="language-julia">for x in 1:size(model_object.parts.tech[:battery].var[:capaStIn],1)
+  var = model_object.parts.tech[:battery].var
+  stIn, stSize = [var[y][x,:var] for y in [:capaStIn,:capaStSize]]
+  @constraint(model_object.optModel, fixEP, stIn*10 &gt;= stSize)
 end</code></pre></div></div><table class="tabelle">
 <tbody>
 <tr>
@@ -1495,7 +1508,7 @@ end</code></pre></div></div><table class="tabelle">
 <td colspan="3"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Residual-capacities"><a class="docs-heading-anchor" href="#Residual-capacities">Residual capacities</a><a id="Residual-capacities-1"></a><a class="docs-heading-anchor-permalink" href="#Residual-capacities" title="Permalink"></a></h3><p>Installed capacities for technologies that aready exist without any expansion.</p><table class="tabelle">
+</table><h3 id="Residual-capacities"><a class="docs-heading-anchor" href="#Residual-capacities">Residual capacities</a><a id="Residual-capacities-1"></a><a class="docs-heading-anchor-permalink" href="#Residual-capacities" title="Permalink"></a></h3><p>Installed capacities for technologies that already exist without any expansion.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1554,7 +1567,7 @@ end</code></pre></div></div><table class="tabelle">
 <td colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><p>Installed exchange capacities that aready exist without any expansion. Also, defining a residual capacity between two regions generally enable exchange of a specific carrier between these regions. If exchange should be enabled, but no pre-existing capacity exists, a residual capacity of zero can be provided.</p><table class="tabelle">
+</table><p>Installed exchange capacities that already exist without any expansion.</p><p>Defining a residual capacity between two regions generally enables exchange of a specific carrier between these regions. If exchange should be enabled, but no pre-existing capacity exists, a residual capacity of zero can be provided.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1844,9 +1857,8 @@ Limits on operated capacity. In the inheritance rules <em>sum*</em> only applies
 <td colspan="3"; style="text-align:center"><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h1 id="Emissions"><a class="docs-heading-anchor" href="#Emissions">Emissions</a><a id="Emissions-1"></a><a class="docs-heading-anchor-permalink" href="#Emissions" title="Permalink"></a></h1><h3 id="Emission-limit"><a class="docs-heading-anchor" href="#Emission-limit">Emission limit</a><a id="Emission-limit-1"></a><a class="docs-heading-anchor-permalink" href="#Emission-limit" title="Permalink"></a></h3><p>Upper limit on carbon emission.</p><p><a href="../parameter_overview/#Inheritance">Inheritance</a></p>
-<p class="norm">
-As a consequence of the inherithance algorithm, the way parameter data for limits is provided determines how the limits are enforced. Because no time-steps is specified, the table below for example will impose an upper limit on the sum of emissions across <u>all</u> time-steps, which corresponds to a budget approach.
+</table><h1 id="Emissions"><a class="docs-heading-anchor" href="#Emissions">Emissions</a><a id="Emissions-1"></a><a class="docs-heading-anchor-permalink" href="#Emissions" title="Permalink"></a></h1><h3 id="Emission-limit"><a class="docs-heading-anchor" href="#Emission-limit">Emission limit</a><a id="Emission-limit-1"></a><a class="docs-heading-anchor-permalink" href="#Emission-limit" title="Permalink"></a></h3><p>Upper limit on carbon emissions.</p><p class="norm">
+Upper limits on emissions are enforced analogously to <a href="#Limits-on-quantities-dispatched">limits on dispatch quantities</a>. Therefore, the same caution with regard to how limits are defined should be exercised. As explained for dispatched quantities in greater detail, the table below will impose a carbon budget, meaning an upper limit on the sum of carbon emitted across <u>all years</u>.
 </p>
 
 <table class="tabelle2">
@@ -1859,13 +1871,13 @@ As a consequence of the inherithance algorithm, the way parameter data for limit
 <tr>
 <td></td>
 <td style="border-right:none">emissionUp</td>
-<td style="border-right:none;text-align:center">100.0</td>
+<td style="border-right:none;text-align:center">80.0</td>
 </tr>
 </tbody>
 </table>
 
 <p class="norm">
-If instead a year is specified the limit <u>only</u> applies for the respective years. However, for that year it still does apply to the sum of emissions across all regions, because still no specific region was provided.
+While this table will enforce separate limits for <u>each year</u>.
 </p>
 
 <table class="tabelle2">
@@ -1876,13 +1888,12 @@ If instead a year is specified the limit <u>only</u> applies for the respective 
 <td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>value</strong></td>
 </tr>
 <tr>
-<td>2020</td>
+<td>all</td>
 <td style="border-right:none">emissionUp</td>
-<td style="border-right:none;text-align:center">100.0</td>
+<td style="border-right:none;text-align:center">80.0</td>
 </tr>
 </tbody>
 </table>
-
 
 
 <table class="tabelle">
@@ -1928,7 +1939,7 @@ If instead a year is specified the limit <u>only</u> applies for the respective 
 <td><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h3 id="Emission-factor"><a class="docs-heading-anchor" href="#Emission-factor">Emission factor</a><a id="Emission-factor-1"></a><a class="docs-heading-anchor-permalink" href="#Emission-factor" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
+</table><h3 id="Emission-factor"><a class="docs-heading-anchor" href="#Emission-factor">Emission factor</a><a id="Emission-factor-1"></a><a class="docs-heading-anchor-permalink" href="#Emission-factor" title="Permalink"></a></h3><p>Relative emissions associated with the use of a carrier.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -1972,7 +1983,7 @@ If instead a year is specified the limit <u>only</u> applies for the respective 
 <td><a href="../parts/#Limit-1">limit</a></td>
 </tr>
 </tbody>
-</table><h3 id="Emission-price"><a class="docs-heading-anchor" href="#Emission-price">Emission price</a><a id="Emission-price-1"></a><a class="docs-heading-anchor-permalink" href="#Emission-price" title="Permalink"></a></h3><p>bla</p><table class="tabelle">
+</table><h3 id="Emission-price"><a class="docs-heading-anchor" href="#Emission-price">Emission price</a><a id="Emission-price-1"></a><a class="docs-heading-anchor-permalink" href="#Emission-price" title="Permalink"></a></h3><p>Costs imposed on emitting carbon.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -2017,4 +2028,4 @@ If instead a year is specified the limit <u>only</u> applies for the respective 
 <td><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parameter_overview/">« Parameter overview</a><a class="docs-footer-nextpage" href="../variables/">Variables »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 29 July 2020 18:45">Wednesday 29 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</table></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parameter_overview/">« Parameter overview</a><a class="docs-footer-nextpage" href="../variables/">Variables »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Thursday 30 July 2020 17:51">Thursday 30 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

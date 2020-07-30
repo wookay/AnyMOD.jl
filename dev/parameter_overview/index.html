@@ -42,7 +42,9 @@ font-size: medium;
 </style><h1 id="Parameter-overview"><a class="docs-heading-anchor" href="#Parameter-overview">Parameter overview</a><a id="Parameter-overview-1"></a><a class="docs-heading-anchor-permalink" href="#Parameter-overview" title="Permalink"></a></h1><p class="norm">
 Parameter data is provided in <code>.csv</code> csv files starting with <code>par_</code>  and transferred into <a href="../api/#AnyMOD.ParElement"><code>ParElement</code></a> objects. The read-in data is used by the inheritance algorithm to compile the parameter data being used in the model's underlying optimization problem. This avoids huge but largely redundant input files and allows for lean and flexible models.
 </p><h1 id="Read-in"><a class="docs-heading-anchor" href="#Read-in">Read-in</a><a id="Read-in-1"></a><a class="docs-heading-anchor-permalink" href="#Read-in" title="Permalink"></a></h1><p class="norm">
-In contrast to sets, the naming of parameter files and what data is provided in which file is entirely up to the user. For instance, data for the same parameter can be spread across different files and within one file multiple parameters can be defined. Parameter data is provided in a pivot format where the column `parameter` determines the respective parameter and the column `value` its respective value. Additional columns specify the nodes within the hierarchical trees of sets a value applies to. Therefore, names of these columns are comprised of the set's name and, if the set is organized in a tree with multiple levels, the number of the respective level.
+In contrast to sets, the naming of parameter files and what data is provided in which file is entirely up to the user. For instance, data for the same parameter can be spread across different files and within one file multiple parameters can be defined.
+</p><h3 id="Pivot-format"><a class="docs-heading-anchor" href="#Pivot-format">Pivot format</a><a id="Pivot-format-1"></a><a class="docs-heading-anchor-permalink" href="#Pivot-format" title="Permalink"></a></h3><p class="norm">
+Parameter data is provided in a pivot format where the column <code>parameter</code> determines the respective parameter and the column <code>value</code> its respective value. Additional columns specify the nodes within the hierarchical trees of sets a value applies to. Therefore, names of these columns are comprised of the set's name and, if the set is organized in a tree with multiple levels, the number of the respective level.
 </p>
 
 <p class="norm">
@@ -85,7 +87,63 @@ As an example, the table below shows the definition of the <a href="../parameter
 <td style="border-right:none;text-align:center">0.03</td>
 </tr>
 </tbody>
-</table><p>In case, a set is included in the dimensions of a parameter, but no node of that set is assigned for a respective value, the very top node of the tree is assigned instead.</p><h1 id="Inheritance"><a class="docs-heading-anchor" href="#Inheritance">Inheritance</a><a id="Inheritance-1"></a><a class="docs-heading-anchor-permalink" href="#Inheritance" title="Permalink"></a></h1><p class="norm">
+</table><p>In case, a set is included in the dimensions of a parameter, but no node of that set is assigned for a respective value, the very top node of the tree is assigned instead.</p><h3 id="Multiple-dependencies-on-same-set"><a class="docs-heading-anchor" href="#Multiple-dependencies-on-same-set">Multiple dependencies on same set</a><a id="Multiple-dependencies-on-same-set-1"></a><a class="docs-heading-anchor-permalink" href="#Multiple-dependencies-on-same-set" title="Permalink"></a></h3><p class="norm">
+Parameter can depend on multiple instances of the same set. In case of an <code>emerging</code> technology (see section on optional mappings for <a href="../sets/#Technologies">technologies</a>)
+<a href="..#Efficiency">efficiency</a> for instance can depend on two different kinds of time-steps: $Ts_{dis}$, the time-step a technology is being used, and $Ts_{exp}$, the time-step a technology was built. Following the order of sets in the definition, the first time-step specified in the input data will always relate to $Ts_{dis}$ and the second to expansion $Ts_{exp}$.
+</p>
+
+<p class="norm">
+Accordingly, in table below the first column relates to $Ts_{dis}$ and the second to $Ts_{exp}$. Consequently, the specified efficiency applies to the first hour of every year for all <code>heatpumps</code> constructed <code>2020</code>.
+</p>
+<table class="tabelle2">
+<tbody>
+<tr>
+<td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>timestep_4</strong></td>
+<td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>timestep_1</strong></td>
+<td style="border-bottom: solid 1px;border-color: #dbdbdb"><strong>technology_1</strong></td>
+<td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>parameter</strong></td>
+<td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>value</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">h0001</td>
+<td style="border-right:none">2020</td>
+<td>heatpump</td>
+<td style="border-right:none">effConf</td>
+<td style="border-right:none;text-align:center">5.0</td>
+</tr>
+</tbody>
+</table>
+<p class="norm">
+This concept equally applies if one of the sets is defined by more then one column. In the table below, the first and the second column are attributed to specify $Ts_{dis}$. Since the third column goes back up to the first level, AnyMOD realizes it refers to a different dimension and attributes it to $Ts_{exp}$. As a result, both efficiencies apply to <code>heatpumps</code> constructed <code>2020</code>, but one row relates to the first hour of <code>2020</code> and the other to the first hour of <code>2030</code>. So, this example also shows how the aging process of technologies can be modelled.
+</p>
+<table class="tabelle2">
+<tbody>
+<tr>
+<td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>timestep_1</strong></td>
+<td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>timestep_4</strong></td>
+<td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>timestep_1</strong></td>
+<td style="border-bottom: solid 1px;border-color: #dbdbdb"><strong>technology_1</strong></td>
+<td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>parameter</strong></td>
+<td style="border-right:none;border-bottom: solid 1px;border-color: #dbdbdb"><strong>value</strong></td>
+</tr>
+<tr>
+<td style="border-right:none">2020</td>
+<td style="border-right:none">h0001</td>
+<td style="border-right:none">2020</td>
+<td>heatpump</td>
+<td style="border-right:none">effConf</td>
+<td style="border-right:none;text-align:center">5.0</td>
+</tr>
+<tr>
+<td style="border-right:none">2030</td>
+<td style="border-right:none">h0001</td>
+<td style="border-right:none">2020</td>
+<td>heatpump</td>
+<td style="border-right:none">effConf</td>
+<td style="border-right:none;text-align:center">4.5</td>
+</tr>
+</tbody>
+</table><h1 id="Inheritance"><a class="docs-heading-anchor" href="#Inheritance">Inheritance</a><a id="Inheritance-1"></a><a class="docs-heading-anchor-permalink" href="#Inheritance" title="Permalink"></a></h1><p class="norm">
 The combinations of sets or instances parameters are provided for within the input data do not need to match the instances required within the model. The required values are automatically compiled from the  data provided. This facilitates the provision of input data and allows for a high level of flexibility in modelling. </p>
 
 <p class="norm">
@@ -465,4 +523,4 @@ Finally, for all cases where no data was assigned, the default value is used ins
 </table>
 </p>
 </li>
-</ol></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parts/">« Parts</a><a class="docs-footer-nextpage" href="../parameter_list/">Parameter list »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 29 July 2020 18:45">Wednesday 29 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</ol></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parts/">« Parts</a><a class="docs-footer-nextpage" href="../parameter_list/">Parameter list »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Thursday 30 July 2020 17:51">Thursday 30 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

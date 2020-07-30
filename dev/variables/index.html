@@ -17,7 +17,13 @@ ul.liste {
   display:inline-block;
   text-align: left;
 }
-</style><h1 id="Variables"><a class="docs-heading-anchor" href="#Variables">Variables</a><a id="Variables-1"></a><a class="docs-heading-anchor-permalink" href="#Variables" title="Permalink"></a></h1><p>erklärung grundsätzliches format, dataframe mit werten und ids, erklären wie das ganze ausgegeben werden kann, hinweis, dass zelle nicht einfach eine JuMP variable sondern eine expression enthält</p><p>all positive defined as positive</p><p>note: anyMOD benutzt nicht die jump container, da variablen extrem sparse highly inefficient</p><h1 id="Dispatch-of-technologies"><a class="docs-heading-anchor" href="#Dispatch-of-technologies">Dispatch of technologies</a><a id="Dispatch-of-technologies-1"></a><a class="docs-heading-anchor-permalink" href="#Dispatch-of-technologies" title="Permalink"></a></h1><p><a href="../sets/#Technologies">Technologies</a></p><h3 id="Generation-and-use"><a class="docs-heading-anchor" href="#Generation-and-use">Generation and use</a><a id="Generation-and-use-1"></a><a class="docs-heading-anchor-permalink" href="#Generation-and-use" title="Permalink"></a></h3><p>sdf, not all modes relevant for each technology, no variables für ava gleich 0</p><table class="tabelle">
+</style><h1 id="Variables"><a class="docs-heading-anchor" href="#Variables">Variables</a><a id="Variables-1"></a><a class="docs-heading-anchor-permalink" href="#Variables" title="Permalink"></a></h1><p>In the following, all variables used in AnyMOD are listed. Information includes the name used throughout the model, the variables&#39; unit, and its dimensions according to the symbols introduced in <a href="../sets/#Sets-and-Mappings">Sets and Mappings</a>. Also, it is specified what determines the instances a variable is actually created for, in which constraints a variable appears, and the model part it is assigned to.</p><p class="norm">
+To increase performance, AnyMOD stores variables within DataFrames instead of using JuMPs native containers. Each variable dimension is represented by a column and integers in these columns relate to nodes within the hierarchical trees of sets (see <a href="../data/#printObject"><code>printObject</code></a> on how to export these in a readable format). An additional <code>var</code> column stores the corresponding variables. These variables are not JuMP variable objects, but JuMP expressions, that already include <a href="../performance/#Scaling">scaling factors</a>.
+</p><p>All variables are defined positive.</p><h1 id="Dispatch-of-technologies"><a class="docs-heading-anchor" href="#Dispatch-of-technologies">Dispatch of technologies</a><a id="Dispatch-of-technologies-1"></a><a class="docs-heading-anchor-permalink" href="#Dispatch-of-technologies" title="Permalink"></a></h1><h3 id="Generation-and-use"><a class="docs-heading-anchor" href="#Generation-and-use">Generation and use</a><a id="Generation-and-use-1"></a><a class="docs-heading-anchor-permalink" href="#Generation-and-use" title="Permalink"></a></h3><p>Quantities generated and used by technology.</p><p class="norm">
+To reduce model size variables are not created, if the <a href="../parameter_list/#Availability-1">availability</a> is zero. Also, mode dependant variables are only created where required. For example, for a technology with mode specific <a href="../parameter_list/#Ratios-of-carrier-use-and-generation-1">generation ratios</a>, different variables for each mode are only created for <code>gen</code>, but not for <code>use</code>.  
+</p>
+
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -58,7 +64,11 @@ ul.liste {
 <td  colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Charging-and-discharging"><a class="docs-heading-anchor" href="#Charging-and-discharging">Charging and discharging</a><a id="Charging-and-discharging-1"></a><a class="docs-heading-anchor-permalink" href="#Charging-and-discharging" title="Permalink"></a></h3><table class="tabelle">
+</table><h3 id="Charging-and-discharging"><a class="docs-heading-anchor" href="#Charging-and-discharging">Charging and discharging</a><a id="Charging-and-discharging-1"></a><a class="docs-heading-anchor-permalink" href="#Charging-and-discharging" title="Permalink"></a></h3><p>Externally and internally charged and discharged quantities (see <a href="../sets/#Technologies">Technologies</a> for explanation).</p><p class="norm">
+To reduce model size variables are not created, if the <a href="../parameter_list/#Availability-1">availability</a> is zero. Also, mode dependant variables are only created where required.  
+</p>
+
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -109,7 +119,11 @@ ul.liste {
 <td  colspan="2"; style="text-align:center"><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h3 id="Storage-level"><a class="docs-heading-anchor" href="#Storage-level">Storage level</a><a id="Storage-level-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-level" title="Permalink"></a></h3><table class="tabelle">
+</table><h3 id="Storage-level"><a class="docs-heading-anchor" href="#Storage-level">Storage level</a><a id="Storage-level-1"></a><a class="docs-heading-anchor-permalink" href="#Storage-level" title="Permalink"></a></h3><p>Quantity stored by storage system.</p><p class="norm">
+To reduce model size variables are not created, if the <a href="../parameter_list/#Availability-1">availability</a> is zero. Also, mode dependant variables are only created where required.  
+</p>
+
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -146,7 +160,10 @@ ul.liste {
 <td><a href="../parts/#Technology-1">technology</a></td>
 </tr>
 </tbody>
-</table><h1 id="Non-technology-dispatch"><a class="docs-heading-anchor" href="#Non-technology-dispatch">Non-technology dispatch</a><a id="Non-technology-dispatch-1"></a><a class="docs-heading-anchor-permalink" href="#Non-technology-dispatch" title="Permalink"></a></h1><h3 id="Exchange-quantities"><a class="docs-heading-anchor" href="#Exchange-quantities">Exchange quantities</a><a id="Exchange-quantities-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-quantities" title="Permalink"></a></h3><p>directed! explain what determines potential interconnection</p><table class="tabelle">
+</table><h1 id="Non-technology-dispatch"><a class="docs-heading-anchor" href="#Non-technology-dispatch">Non-technology dispatch</a><a id="Non-technology-dispatch-1"></a><a class="docs-heading-anchor-permalink" href="#Non-technology-dispatch" title="Permalink"></a></h1><h3 id="Exchange-quantities"><a class="docs-heading-anchor" href="#Exchange-quantities">Exchange quantities</a><a id="Exchange-quantities-1"></a><a class="docs-heading-anchor-permalink" href="#Exchange-quantities" title="Permalink"></a></h3><p>Quantity exchanged from one region to the other. The variable is directed meaning it only denotes exchange into one direction.</p><p class="norm">
+Variables are only created between regions that can actually exchange energy, which depends on the definition of <a href="../parameter_list/#Residual-capacities-1">residual capacity</a>.
+</p>
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -182,7 +199,7 @@ ul.liste {
 <td><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3 id="Buy-and-sell"><a class="docs-heading-anchor" href="#Buy-and-sell">Buy and sell</a><a id="Buy-and-sell-1"></a><a class="docs-heading-anchor-permalink" href="#Buy-and-sell" title="Permalink"></a></h3><table class="tabelle">
+</table><h3 id="Buy-and-sell"><a class="docs-heading-anchor" href="#Buy-and-sell">Buy and sell</a><a id="Buy-and-sell-1"></a><a class="docs-heading-anchor-permalink" href="#Buy-and-sell" title="Permalink"></a></h3><p>Quantities bought or sold on an external market.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -219,7 +236,7 @@ ul.liste {
 <td colspan="2"><a href="../parts/#Trade-1">trade</a></td>
 </tr>
 </tbody>
-</table><h3 id="Curtailment-and-loss-of-load"><a class="docs-heading-anchor" href="#Curtailment-and-loss-of-load">Curtailment and loss-of-load</a><a id="Curtailment-and-loss-of-load-1"></a><a class="docs-heading-anchor-permalink" href="#Curtailment-and-loss-of-load" title="Permalink"></a></h3><p>fully analogous to trade buy and sell, just created to faciliate reporting since aims to represent other aspects</p><table class="tabelle">
+</table><h3 id="Curtailment-and-loss-of-load"><a class="docs-heading-anchor" href="#Curtailment-and-loss-of-load">Curtailment and loss-of-load</a><a id="Curtailment-and-loss-of-load-1"></a><a class="docs-heading-anchor-permalink" href="#Curtailment-and-loss-of-load" title="Permalink"></a></h3><p>Curtailed quantities and unmet demand.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -255,7 +272,11 @@ ul.liste {
 <td  colspan="2"><a href="../parts/#Balance-1">balance</a></td>
 </tr>
 </tbody>
-</table><h1 id="Capacity-expansion"><a class="docs-heading-anchor" href="#Capacity-expansion">Capacity expansion</a><a id="Capacity-expansion-1"></a><a class="docs-heading-anchor-permalink" href="#Capacity-expansion" title="Permalink"></a></h1><h3 id="Expansion"><a class="docs-heading-anchor" href="#Expansion">Expansion</a><a id="Expansion-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion" title="Permalink"></a></h3><table class="tabelle">
+</table><h1 id="Capacity-expansion"><a class="docs-heading-anchor" href="#Capacity-expansion">Capacity expansion</a><a id="Capacity-expansion-1"></a><a class="docs-heading-anchor-permalink" href="#Capacity-expansion" title="Permalink"></a></h1><h3 id="Expansion"><a class="docs-heading-anchor" href="#Expansion">Expansion</a><a id="Expansion-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion" title="Permalink"></a></h3><p>Expansion of conversion, storage-input, storage-output, storage-size, and exchange capacity.</p><p class="norm">
+As explained <a href="../parameter_list/#Capacity-expansion">here</a>, capacity refers to <strong>capacity before efficiency</strong>!
+</p>
+
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -314,7 +335,11 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3 id="Installed-capacity"><a class="docs-heading-anchor" href="#Installed-capacity">Installed capacity</a><a id="Installed-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Installed-capacity" title="Permalink"></a></h3><table class="tabelle">
+</table><h3 id="Installed-capacity"><a class="docs-heading-anchor" href="#Installed-capacity">Installed capacity</a><a id="Installed-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Installed-capacity" title="Permalink"></a></h3><p>Installed capacity of conversion, storage-input, storage-output, storage-size, and exchange capacity.</p><p class="norm">
+As explained <a href="../parameter_list/#Capacity-expansion">here</a>, capacity refers to <strong>capacity before efficiency</strong>!
+</p>
+
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -380,7 +405,10 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h3 id="Operated-capacity"><a class="docs-heading-anchor" href="#Operated-capacity">Operated capacity</a><a id="Operated-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Operated-capacity" title="Permalink"></a></h3><table class="tabelle">
+</table><h3 id="Operated-capacity"><a class="docs-heading-anchor" href="#Operated-capacity">Operated capacity</a><a id="Operated-capacity-1"></a><a class="docs-heading-anchor-permalink" href="#Operated-capacity" title="Permalink"></a></h3><p>Operated capacity of conversion, storage-input, storage-output, storage-size, and exchange capacity.</p><p class="norm">
+As explained <a href="../parameter_list/#Capacity-expansion">here</a>, capacity refers to <strong>capacity before efficiency</strong>!
+</p>
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -463,7 +491,10 @@ ul.liste {
 <td style="text-align:center"><a href="../parts/#Exchange-1">exchange</a></td>
 </tr>
 </tbody>
-</table><h1 id="Costs"><a class="docs-heading-anchor" href="#Costs">Costs</a><a id="Costs-1"></a><a class="docs-heading-anchor-permalink" href="#Costs" title="Permalink"></a></h1><p>emissionPrc is included via use,</p><p>dimensions just picked for internal purposes, more detailed information via reporting functions</p><h3 id="Expansion-cost"><a class="docs-heading-anchor" href="#Expansion-cost">Expansion cost</a><a id="Expansion-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion-cost" title="Permalink"></a></h3><p>sdf</p><table class="tabelle">
+</table><h1 id="Costs"><a class="docs-heading-anchor" href="#Costs">Costs</a><a id="Costs-1"></a><a class="docs-heading-anchor-permalink" href="#Costs" title="Permalink"></a></h1><p>The variables listed here solely serve the purpose to aggregate different kinds of costs and do not have any other function within the model. Therefore, their structure is a bit arbitrary and was chosen to facilitate reporting without adversely affecting performance.</p><h3 id="Expansion-cost"><a class="docs-heading-anchor" href="#Expansion-cost">Expansion cost</a><a id="Expansion-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Expansion-cost" title="Permalink"></a></h3><p>Costs of capacity expansion.</p><p class="norm">
+As explained <a href="../parameter_list/#Capacity-expansion">here</a>, capacity and thus also costs of capacity expansion, refer to <strong>capacity before efficiency</strong>!
+</p>
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -498,7 +529,10 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Operating-cost"><a class="docs-heading-anchor" href="#Operating-cost">Operating cost</a><a id="Operating-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Operating-cost" title="Permalink"></a></h3><p>sdf</p><table class="tabelle">
+</table><h3 id="Operating-cost"><a class="docs-heading-anchor" href="#Operating-cost">Operating cost</a><a id="Operating-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Operating-cost" title="Permalink"></a></h3><p>Costs of operating capacity.</p><p class="norm">
+As explained <a href="../parameter_list/#Capacity-expansion">here</a>, capacity and thus also operating costs, refer to <strong>capacity before efficiency</strong>!
+</p>
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -533,7 +567,10 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Variable-cost"><a class="docs-heading-anchor" href="#Variable-cost">Variable cost</a><a id="Variable-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Variable-cost" title="Permalink"></a></h3><table class="tabelle">
+</table><h3 id="Variable-cost"><a class="docs-heading-anchor" href="#Variable-cost">Variable cost</a><a id="Variable-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Variable-cost" title="Permalink"></a></h3><p class="norm">
+Variable costs associated with quantities dispatched. Costs incurred by <a href="../parameter_list/#Emission-price-1">emission prices</a> are included in <code>costVarUse</code>.
+</p>
+<table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -569,7 +606,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Trade-cost"><a class="docs-heading-anchor" href="#Trade-cost">Trade cost</a><a id="Trade-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Trade-cost" title="Permalink"></a></h3><p>and revenues!</p><table class="tabelle">
+</table><h3 id="Trade-cost"><a class="docs-heading-anchor" href="#Trade-cost">Trade cost</a><a id="Trade-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Trade-cost" title="Permalink"></a></h3><p>Costs and revenues from buying or selling carriers on an external market.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -603,7 +640,7 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table><h3 id="Curtailment-and-loss-of-load-cost"><a class="docs-heading-anchor" href="#Curtailment-and-loss-of-load-cost">Curtailment and loss-of-load cost</a><a id="Curtailment-and-loss-of-load-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Curtailment-and-loss-of-load-cost" title="Permalink"></a></h3><p>costs can be negative</p><table class="tabelle">
+</table><h3 id="Curtailment-and-loss-of-load-cost"><a class="docs-heading-anchor" href="#Curtailment-and-loss-of-load-cost">Curtailment and loss-of-load cost</a><a id="Curtailment-and-loss-of-load-cost-1"></a><a class="docs-heading-anchor-permalink" href="#Curtailment-and-loss-of-load-cost" title="Permalink"></a></h3><p>Cost of curtailment and unmet demand.</p><p>To allow for revenues and costs from curtailment, <code>costCrt</code> is the only model variable that can also take negative values.</p><table class="tabelle">
 <tbody>
 <tr>
 <td><strong>name</strong></td>
@@ -637,4 +674,4 @@ ul.liste {
 <td colspan="2"; style="text-align:center"><a href="../parts/#Objective-1">objective</a></td>
 </tr>
 </tbody>
-</table></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parameter_list/">« Parameter list</a><a class="docs-footer-nextpage" href="../constraints/">Constraints »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 29 July 2020 18:45">Wednesday 29 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</table></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parameter_list/">« Parameter list</a><a class="docs-footer-nextpage" href="../constraints/">Constraints »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Thursday 30 July 2020 17:51">Thursday 30 July 2020</span>. Using Julia version 1.3.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
